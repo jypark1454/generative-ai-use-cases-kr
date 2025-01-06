@@ -49,26 +49,26 @@ const promptFlowChatEnabled: boolean = promptFlows.length > 0;
 
 const items: ItemProps[] = [
   {
-    label: 'ホーム',
+    label: 'Home',
     to: '/',
     icon: <PiHouse />,
     display: 'usecase' as const,
   },
   {
-    label: '設定情報',
+    label: 'Setting',
     to: '/setting',
     icon: <PiGear />,
     display: 'none' as const,
   },
   {
-    label: 'チャット',
+    label: 'Chat',
     to: '/chat',
     icon: <PiChatsCircle />,
     display: 'usecase' as const,
   },
   ragEnabled
     ? {
-        label: 'RAG チャット',
+        label: 'RAG Chat(Kendra)',
         to: '/rag',
         icon: <PiChatCircleText />,
         display: 'usecase' as const,
@@ -77,7 +77,7 @@ const items: ItemProps[] = [
     : null,
   ragKnowledgeBaseEnabled
     ? {
-        label: 'RAG チャット',
+        label: 'RAG Chat(KB)',
         to: '/rag-knowledge-base',
         icon: <PiChatCircleText />,
         display: 'usecase' as const,
@@ -86,7 +86,7 @@ const items: ItemProps[] = [
     : null,
   agentEnabled
     ? {
-        label: 'Agent チャット',
+        label: 'Agent Chat',
         to: '/agent',
         icon: <PiRobot />,
         display: 'usecase' as const,
@@ -94,65 +94,65 @@ const items: ItemProps[] = [
     : null,
   promptFlowChatEnabled
     ? {
-        label: 'Prompt Flow チャット',
+        label: 'Prompt Flow Chat',
         to: '/prompt-flow-chat',
         icon: <PiFlowArrow />,
         display: 'usecase' as const,
       }
     : null,
   {
-    label: '文章生成',
+    label: '문장 생성',
     to: '/generate',
     icon: <PiPencil />,
     display: 'usecase' as const,
   },
   {
-    label: '要約',
+    label: '요약',
     to: '/summarize',
     icon: <PiNote />,
     display: 'usecase' as const,
   },
   {
-    label: '校正',
+    label: '교정',
     to: '/editorial',
     icon: <PiPenNib />,
     display: 'usecase' as const,
   },
   {
-    label: '翻訳',
+    label: '번역',
     to: '/translate',
     icon: <PiTranslate />,
     display: 'usecase' as const,
   },
   {
-    label: 'Web コンテンツ抽出',
+    label: 'Web 콘텐츠 추출',
     to: '/web-content',
     icon: <PiGlobe />,
     display: 'usecase' as const,
   },
   {
-    label: '画像生成',
+    label: '이미지 생성',
     to: '/image',
     icon: <PiImages />,
     display: 'usecase' as const,
   },
   visionEnabled
     ? {
-        label: '映像分析',
+        label: '영상 분석',
         to: '/video',
         icon: <PiVideoCamera />,
         display: 'usecase' as const,
       }
     : null,
   {
-    label: '音声認識',
+    label: '음성인식',
     to: '/transcribe',
     icon: <PiSpeakerHighBold />,
     display: 'tool' as const,
   },
   optimizePromptEnabled
     ? {
-        label: 'プロンプト最適化',
+        label: '프롬프트 최적화',
         to: '/optimize',
         icon: <PiMagicWand />,
         display: 'tool' as const,
@@ -160,7 +160,7 @@ const items: ItemProps[] = [
     : null,
   ragEnabled
     ? {
-        label: 'Kendra 検索',
+        label: 'Kendra 검색',
         to: '/kendra',
         icon: <PiMagnifyingGlass />,
         display: 'tool' as const,
@@ -168,8 +168,8 @@ const items: ItemProps[] = [
     : null,
 ].flatMap((i) => (i !== null ? [i] : []));
 
-// /chat/:chatId の形式から :chatId を返す
-// path が別の形式の場合は null を返す
+// /chat/:chatId 형식에서 :chatId 반환
+// path 가 다른형식인 경우 null 반환
 const extractChatId = (path: string): string | null => {
   const pattern = /\/chat\/(.+)/;
   const match = path.match(pattern);
@@ -195,8 +195,8 @@ const App: React.FC = () => {
     }
   }, [pathname, getChatTitle]);
 
-  // 画面間遷移時にスクロールイベントが発火しない場合 (ページ最上部からページ最上部への移動など)
-  // 最上部/最下部の判定がされないので、pathname の変化に応じて再判定する
+  // 화면 전환 시 스크롤 이벤트가 발동되지 않는 경우 (페이지 상단에서 페이지 상단으로 이동 등)
+  // 최상위/최하위 판단이 되지 않으므로 pathname 변경에 따라 재판정한다.
   useEffect(() => {
     if (screen.current) {
       notifyScreen(screen.current);
@@ -222,7 +222,7 @@ const App: React.FC = () => {
 
           {label}
 
-          {/* label を真ん中にするためのダミーのブロック */}
+          {/* label 를 가운데에 배치하기 위한 더미 블록 */}
           <div className="w-10" />
         </header>
 
@@ -246,7 +246,7 @@ const App: React.FC = () => {
           </ButtonIcon>
         </div>
         <div className="text-aws-font-color lg:ml-64">
-          {/* ユースケース間連携時に表示 */}
+          {/* 유스케이스 간 연동 시 표시 */}
           {isShow && <PopupInterUseCasesDemo />}
           <Outlet />
         </div>
