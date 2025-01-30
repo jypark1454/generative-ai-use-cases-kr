@@ -205,17 +205,17 @@ const bedrockApi: Omit<ApiInterface, 'invokeFlow'> = {
         e instanceof ServiceQuotaExceededException
       ) {
         yield streamingChunk({
-          text: 'ただいまアクセスが集中しているため時間をおいて試してみてください。',
+          text: '지금 접속이 집중되어 있으니 시간을 두고 시도해 보시기 바랍니다.',
         });
       } else if (e instanceof AccessDeniedException) {
         const modelAccessURL = `https://${process.env.MODEL_REGION}.console.aws.amazon.com/bedrock/home?region=${process.env.MODEL_REGION}#/modelaccess`;
         yield streamingChunk({
-          text: `選択したモデルが有効化されていないようです。[Bedrock コンソールの Model Access 画面](${modelAccessURL})にて、利用したいモデルを有効化してください。`,
+          text: `선택한 모델이 활성화되지 않은 것 같습니다. [Bedrock 콘솔의 Model Access 화면](${modelAccessURL})에서 사용하고자 하는 모델을 활성화해 주세요.`,
         });
       } else {
         console.error(e);
         yield streamingChunk({
-          text: 'エラーが発生しました。時間をおいて試してみてください。',
+          text: '오류가 발생했습니다. 시간을 두고 다시 시도해 보세요.',
         });
       }
     }

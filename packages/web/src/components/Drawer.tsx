@@ -83,7 +83,7 @@ const Drawer: React.FC<Props> = (props) => {
           <>
             <Switch
               className="mx-3 mb-1 mt-3"
-              label="ビルダーモード"
+              label="빌더 모드"
               checked={false}
               onSwitch={() => {
                 navigate(ROUTE_INDEX_USE_CASE_BUILDER);
@@ -93,7 +93,7 @@ const Drawer: React.FC<Props> = (props) => {
           </>
         )}
         <div className="text-aws-smile mx-3 my-1 text-xs">
-          ユースケース <span className="text-gray-400">(生成 AI)</span>
+          활용 사례 <span className="text-gray-400">(생성형 AI)</span>
         </div>
         <div className="scrollbar-thin scrollbar-thumb-white ml-2 mr-1 h-full overflow-y-auto">
           {usecases.map((item, idx) => (
@@ -110,8 +110,8 @@ const Drawer: React.FC<Props> = (props) => {
         {tools.length > 0 && (
           <>
             <ExpandableMenu
-              title="ツール"
-              subTitle="(AI サービス)"
+              title="도구"
+              subTitle="(AI 서비스)"
               className="mx-3 my-2 text-xs">
               <div className="mb-2 ml-2 mr-1">
                 {tools.map((item, idx) => (
@@ -128,13 +128,13 @@ const Drawer: React.FC<Props> = (props) => {
             <div className="border-b" />
           </>
         )}
-        <ExpandableMenu title="会話履歴" className="mx-3 my-2 text-xs">
+        <ExpandableMenu title="대화 기록" className="mx-3 my-2 text-xs">
           <div className="relative mb-2 ml-2 mr-1 w-full pl-1.5 pr-7 pt-1">
             <input
               className="bg-aws-squid-ink h-7 w-full rounded-full border border-white pl-8 text-sm text-white focus:border-white focus:ring-0"
               type="text"
               value={searchQuery}
-              placeholder="件名で検索"
+              placeholder="제목으로 검색"
               onChange={(event) => {
                 setSearchQuery(event.target.value ?? '');
               }}
@@ -147,7 +147,7 @@ const Drawer: React.FC<Props> = (props) => {
         </ExpandableMenu>
         <div className="border-b" />
         <ExpandableMenu
-          title="リンク"
+          title="링크"
           defaultOpened={false}
           className="mx-3 my-2 text-xs">
           <div className="mb-2 ml-2">

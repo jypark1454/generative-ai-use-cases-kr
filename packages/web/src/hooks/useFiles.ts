@@ -96,10 +96,10 @@ const useFilesState = create<{
           uploadedFile.file.name.split('.').pop()) as string;
         const isFileTypeAllowed = accept.includes(mediaFormat);
         if (accept && accept.length === 0) {
-          errorMessages.push(`このモデルはファイルに対応していません。`);
+          errorMessages.push(`이 모델은 파일을 지원하지 않습니다.`);
         } else if (!isFileTypeAllowed) {
           errorMessages.push(
-            `${uploadedFile.file.name} は許可されていない拡張子です。利用できる拡張子は ${accept.join(', ')} です`
+            `${uploadedFile.file.name} 는 허용되지 않는 확장자입니다. 사용 가능한 확장자는 ${accept.join(', ')} 입니다`
           );
         }
 
@@ -113,7 +113,7 @@ const useFilesState = create<{
         const isFileSizeAllowed = uploadedFile.file.size <= maxSizeMB * 1e6;
         if (!isFileSizeAllowed) {
           errorMessages.push(
-            `${uploadedFile.file.name} は最大ファイルサイズ ${maxSizeMB} MB を超えています。`
+            `${uploadedFile.file.name} 는 최대 파일 크기 ${maxSizeMB} MB 를 넘어섰습니다.`
           );
         }
 
@@ -125,7 +125,7 @@ const useFilesState = create<{
             imageFileCount <= (fileLimit.maxImageFileCount || 0);
           if (!isFileNumberAllowed) {
             errorMessages.push(
-              `画像ファイルは ${fileLimit.maxImageFileCount} 個以下にしてください`
+              `이미지 파일은 ${fileLimit.maxImageFileCount} 개 이하로 해주세요`
             );
           }
         } else if (uploadedFile.file.type.includes('video')) {
@@ -134,7 +134,7 @@ const useFilesState = create<{
             videoFileCount <= (fileLimit.maxVideoFileCount || 0);
           if (!isFileNumberAllowed) {
             errorMessages.push(
-              `動画ファイルは ${fileLimit.maxVideoFileCount} 個以下にしてください`
+              `동영상 파일은 ${fileLimit.maxVideoFileCount} 개 이하로 해주세요`
             );
           }
         } else {
@@ -142,7 +142,7 @@ const useFilesState = create<{
           isFileNumberAllowed = fileCount <= (fileLimit.maxFileCount || 0);
           if (!isFileNumberAllowed) {
             errorMessages.push(
-              `ファイルは ${fileLimit.maxFileCount} 個以下にしてください`
+              `파일은 ${fileLimit.maxFileCount} 개 이하로 해주세요`
             );
           }
         }

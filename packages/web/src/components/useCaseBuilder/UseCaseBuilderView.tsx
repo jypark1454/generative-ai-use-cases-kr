@@ -226,13 +226,13 @@ const UseCaseBuilderView: React.FC<Props> = (props) => {
 
     if (hasKendra && !ragEnabled) {
       tmpErrorMessages.push(
-        'プロンプトテンプレート内で {{retrieveKendra}} が指定されていますが GenU で RAG チャット (Amazon Kendra) が有効になっていません。'
+        '프롬프트 템플릿에 {{retrieveKendra}}가 지정되어 있지만 GenU에서 RAG 채팅(Amazon Kendra)이 활성화되어 있지 않습니다.'
       );
     }
 
     if (hasKnowledgeBase && !ragKnowledgeBaseEnabled) {
       tmpErrorMessages.push(
-        'プロンプトテンプレート内で {{retrieveKnowledgeBase}} が指定されていますが GenU で RAG チャット (Knowledge Base) が有効になっていません。'
+        '프롬프트 템플릿에 {{retrieveKnowledgeBase}}가 지정되어 있지만 GenU에서 RAG 채팅(Knowledge Base)이 활성화되어 있지 않습니다.'
       );
     }
 
@@ -241,7 +241,7 @@ const UseCaseBuilderView: React.FC<Props> = (props) => {
 
       if (!textForm) {
         tmpErrorMessages.push(
-          `Amazon Kendra の検索クエリを入力するためのフォーム {{text${item.label === NOLABEL ? '' : ':' + item.label}}} をプロンプテンプレートに内に記述してください。`
+          `Amazon Kendra 검색어를 입력하는 양식 {{text${item.label === NOLABEL ? '' : ':' + item.label}}} をプロンプテンプレートに内に記述してください。`
         );
       }
     }
@@ -251,7 +251,7 @@ const UseCaseBuilderView: React.FC<Props> = (props) => {
 
       if (!textForm) {
         tmpErrorMessages.push(
-          `Knowledge Base の検索クエリを入力するためのフォーム {{text${item.label === NOLABEL ? '' : ':' + item.label}}} をプロンプテンプレートに内に記述してください。`
+          `Knowledge Base 검색어를 입력하는 양식 {{text${item.label === NOLABEL ? '' : ':' + item.label}}} をプロンプテンプレートに内に記述してください。`
         );
       }
     }
@@ -407,10 +407,10 @@ const UseCaseBuilderView: React.FC<Props> = (props) => {
         <div
           className={`${props.previewMode ? '' : 'hidden lg:block'} flex flex-row justify-center`}>
           {props.isLoading
-            ? '読み込み中...'
+            ? '로딩 중...'
             : props.title
               ? props.title
-              : '[タイトル未入力]'}
+              : '[제목 미입력]'}
         </div>
         {!props.previewMode && (
           <div className="mb-2 flex min-w-48 flex-1 flex-row items-start justify-end md:mb-0">
@@ -599,7 +599,7 @@ const UseCaseBuilderView: React.FC<Props> = (props) => {
       <div className="mt-5 rounded border border-black/30 p-1.5">
         <Markdown>{typingTextOutput}</Markdown>
         {!loading && text === '' && (
-          <div className="text-gray-500">実行結果がここに表示されます</div>
+          <div className="text-gray-500">실행 결과가 여기에 표시됩니다.</div>
         )}
         {loading && (
           <div className="border-aws-sky size-5 animate-spin rounded-full border-4 border-t-transparent"></div>

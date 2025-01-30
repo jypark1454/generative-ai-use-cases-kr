@@ -52,14 +52,14 @@ const bedrockOptimizePrompt = {
       ) {
         // 以下全て OptimizePrompt のレスポンスに合わせて JSON.stringify する
         yield JSON.stringify(
-          'ただいまアクセスが集中しているため時間をおいて試してみてください。'
+          '지금 접속이 집중되어 있으니 시간을 두고 시도해 보시기 바랍니다.'
         );
       } else if (e instanceof ValidationException) {
-        yield JSON.stringify(`利用上限に達したか不正なリクエストです \n ${e}`);
+        yield JSON.stringify(`이용 한도에 도달했거나 잘못된 요청입니다. \n ${e}`);
       } else {
         console.error(e);
         yield JSON.stringify(
-          'エラーが発生しました。時間をおいて試してみてください。'
+          '오류가 발생했습니다. 시간을 두고 다시 시도해 보세요.'
         );
       }
     }

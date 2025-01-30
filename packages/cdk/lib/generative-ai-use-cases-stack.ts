@@ -17,10 +17,10 @@ import { Agent, PromptFlow } from 'generative-ai-use-cases-jp';
 import { UseCaseBuilder } from './construct/use-case-builder';
 
 const errorMessageForBooleanContext = (key: string) => {
-  return `${key} の設定でエラーになりました。原因として考えられるものは以下です。
- - cdk.json の変更ではなく、-c オプションで設定しようとしている
- - cdk.json に boolean ではない値を設定している (例: "true" ダブルクォートは不要)
- - cdk.json に項目がない (未設定)`;
+  return `${key} 설정에서 오류가 발생했습니다. 원인은 다음과 같습니다.
+ - cdk.json 의 변경이 아닌 -c 옵션으로 설정하려고 합니다.
+ - cdk.json  에 boolean 이 아닌 값을 설정하는 경우 (예: “true” 큰따옴표는 필요 없음)
+ - cdk.json 에 항목이 없음 (미설정)`;
 };
 
 interface GenerativeAiUseCasesStackProps extends StackProps {

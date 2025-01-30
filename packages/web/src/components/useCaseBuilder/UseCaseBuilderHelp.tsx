@@ -16,7 +16,7 @@ const PromptSample: React.FC<PromptSampleProps> = (props) => {
         onClick={() => {
           setIsOpen(!isOpen);
         }}>
-        例: {props.title}
+        예시: {props.title}
         <PiCaretUp className={`${isOpen ? 'rotate-180' : ''} transition-all`} />
       </div>
       {isOpen && (
@@ -47,23 +47,23 @@ const UseCaseBuilderHelp = () => {
       <div className="flex flex-col gap-y-4">
         <div className="text-lg font-bold">プロンプトテンプレートとは？</div>
         <div className="text-sm leading-relaxed">
-          生成 AI
-          に指示を出すための「ひな形」のようなものです。目的に応じて、あらかじめ指示文の型を用意しておくことができます。
-          プロンプトテンプレートには実行時にテキストを埋め込むための placeholder
-          が定義できます。
+          생성형 AI
+          에 지시를 내리기 위한 '틀'과 같은 것입니다. 목적에 따라 미리 지시문의 틀을 준비해 둘 수 있습니다.
+          프롬프트 템플릿은 런타임에 텍스트를 삽입하기 위한 placeholder
+          를 정의할 수 있습니다.
         </div>
       </div>
 
       <div className="flex flex-col gap-y-4">
         <div className="text-lg font-bold">Placeholder</div>
         <div className="text-sm leading-relaxed">
-          Placeholder は <Placeholder inputType="入力タイプ" label="ラベル" />{' '}
-          のように書きます。 ラベルが識別子になるため、同一のラベルを持つ
-          placeholder は同じ入力であるとみなされます。 ラベルを省略して{' '}
-          <Placeholder inputType="入力タイプ" />{' '}
-          のように書くことも可能です。その場合、無ラベルの placeholder
-          は同じ入力であるとみなされます。 実際に実行されたプロンプトは GenU
-          の会話履歴から確認できます。
+          Placeholder は <Placeholder inputType="입력 유형" label="라벨" />{' '}
+          와 같이 작성합니다. 라벨이 식별자가 되기 때문에 동일한 라벨을 가진
+          placeholder 는 동일한 입력으로 간주됩니다. 라벨을 생략하고{' '}
+          <Placeholder inputType="입력 유형" />{' '}
+          와 같이 쓸 수도 있습니다. 이 경우 라벨이 없는 placeholder
+          는 동일한 입력으로 간주됩니다. 실제로 실행된 프롬프트는 GenU
+          의 대화 기록에서 확인할 수 있습니다.
         </div>
       </div>
 
@@ -76,27 +76,27 @@ const UseCaseBuilderHelp = () => {
               <Placeholder inputType="text" /> <ButtonCopy text={'{{text}}'} />
             </div>
             <div className="text-sm leading-relaxed">
-              <Placeholder inputType="text" /> は最も基本的な placeholder です。
-              <Placeholder inputType="text" /> あるいは{' '}
-              <Placeholder inputType="text" label="ラベル" />{' '}
+              <Placeholder inputType="text" /> 는 가장 기본적인 placeholder 입니다.
+              <Placeholder inputType="text" /> 또는{' '}
+              <Placeholder inputType="text" label="라벨" />{' '}
               のように記述します。
               <Placeholder inputType="text" />{' '}
-              はテキスト入力を受け付けるフォームを作成し、入力した値をそのままプロンプトテンプレートに埋め込みます。
+              는 텍스트 입력을 받는 양식을 생성하고 입력한 값을 프롬프트 템플릿에 그대로 삽입합니다.
               <PromptSample
-                title="メール返信の例"
-                prompt={`あなたは、メール返信の担当者です。
-以下のルールを守って、返信用のメールを作成してください。
-<ルール>
-- 取引先へのメールです。敬語を使う必要がありますが、関係構築ができているので、かしこまりすぎた文章である必要はありません。
-- 返信対象メールの内容を理解し、返信内容に沿った返信用メールを作成してください。
-- 返信対象メールと返信内容から読み取れないことは、絶対にメール文に含めないでください。
-</ルール>
-<返信対象メール>
-{{text:返信対象のメール本文}}
-</返信対象メール>
-<返信内容>
-{{text:返信内容}}
-</返信内容>`}
+                title="이메일 답장 예시"
+                prompt={`당신은 이메일 회신 담당자입니다.
+아래 규칙을 준수하여 답장용 메일을 작성해 주세요.
+<규칙
+- 거래처에 보내는 메일입니다. 경어를 사용해야 하지만, 관계 구축이 되어 있으므로 너무 딱딱한 문장이 될 필요는 없습니다.
+- 답장 대상 메일의 내용을 이해하고, 답장 내용에 맞춰 답장용 메일을 작성해야 합니다.
+- 답장 대상 메일과 답장 내용에서 읽을 수 없는 내용은 절대로 메일 문장에 포함시키지 말아야 합니다.
+</규칙>
+<답장 대상 메일
+{{text:회신 대상 메일 본문}}
+</회신 대상 메일> <회신 대상 메일>{{text:회신 대상 메일 본문}}
+<답장 내용
+{{text:회신 내용}}
+</ 답장 내용></ 답장 내용>`}
               />
             </div>
           </div>
@@ -106,30 +106,30 @@ const UseCaseBuilderHelp = () => {
               <Placeholder inputType="form" /> <ButtonCopy text={'{{form}}'} />
             </div>
             <div className="text-sm leading-relaxed">
-              <Placeholder inputType="form" /> は入力フォームを定義するための
-              placeholder です。
-              <Placeholder inputType="form" /> あるいは{' '}
-              <Placeholder inputType="form" label="ラベル" />{' '}
-              のように記述します。
+              <Placeholder inputType="form" /> 는 입력 폼을 정의하기 위한
+              placeholder입니다.
+              <Placeholder inputType="form" /> 또는{' '}
+              <Placeholder inputType="form" label="라벨" />{' '}
+              와 같이 설명합니다.
               <Placeholder inputType="form" />{' '}
-              はテキスト入力を受け付けるフォームを作成しますが、
+              는 텍스트 입력을 받는 양식을 생성하지만,
               <span className="font-bold">
-                プロンプトテンプレートに入力を埋め込みません。
+              프롬프트 템플릿에 입력을 포함하지 않습니다.
               </span>
               「RAG
-              等でデータソースに問い合わせしたいが、問い合わせ内容そのものはプロンプトに埋め込みたくない」というユースケースで使います。
+              데이터 소스를 쿼리하고 싶지만, 쿼리 내용 자체를 프롬프트에 포함시키고 싶지 않다"는 사용 사례에서 사용합니다.
               <PromptSample
-                title="クイズの生成"
-                prompt={`あなたは、与えられた情報を元にクイズを生成する AI アシスタントです。
+                title="퀴즈 생성"
+                prompt={`당신은 주어진 정보를 바탕으로 퀴즈를 생성하는 AI 어시스턴트입니다.
 
-{{form:クイズの元になる情報を検索}}
+{form:퀴즈의 원천 정보 검색}}
 
-以下の情報を読み込んで、4 択クイズを作成してください。
-正解も合わせて教えてください。
+아래 정보를 입력받아 4지선다형 퀴즈를 만들어주세요.
+정답도 함께 알려주세요.
 
-<情報>
-{{retrieveKendra:クイズの元になる情報を検索}}
-</情報>`}
+<정보
+{{retrieveKendra:퀴즈의 원천 정보 검색}}
+</정보>{{retrieveKendra:퀴즈 원본 정보 검색}}>`}
               />
             </div>
           </div>
@@ -191,48 +191,48 @@ const UseCaseBuilderHelp = () => {
               <ButtonCopy text={'{{retrieveKnowledgeBase}}'} />
             </div>
             <div className="text-sm leading-relaxed">
-              <Placeholder inputType="retrieveKnowledgeBase" /> は Knowledge
-              Base から retrieve
-              した結果をプロンプトテンプレートに埋め込みます。
-              <Placeholder inputType="retrieveKnowledgeBase" /> あるいは{' '}
-              <Placeholder inputType="retrieveKnowledgeBase" label="ラベル" />{' '}
-              のように記述します。
+              <Placeholder inputType="retrieveKnowledgeBase" /> 은 Knowledge
+              Base에서 retrieve
+              한 결과를 프롬프트 템플릿에 삽입합니다.
+              <Placeholder inputType="retrieveKnowledgeBase" /> 또는{' '}
+              <Placeholder inputType="retrieveKnowledgeBase" label="라벨" />{' '}
+              와 같이 설명합니다.
               <Placeholder inputType="retrieveKnowledgeBase" /> は
               <span className="font-bold">
-                検索クエリを入力するための placeholder (
-                <Placeholder inputType="text" />) が別に必要
+              검색어 입력을 위한 placeholder (
+                <Placeholder inputType="text" />) 가 별도로 필요
               </span>
-              です。それらは同一ラベルである必要があります。
-              実際に埋め込まれる値は Knowledge Base の Retrieve API の{' '}
+              입니다. 동일한 레이블이어야 합니다.
+              실제로 삽입되는 값은 Knowledge Base의 Retrieve API의{' '}
               <a
                 className="text-aws-smile"
                 href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax"
                 target="_blank">
-                retrievalResults を JSON にした文字列
+                retrievalResults 를 JSON 으로 변환한 문자열
               </a>{' '}
-              です。 この機能を利用するためには、GenU で RAG チャット (Knowledge
-              Base) が有効になっている必要があります。有効化の方法は{' '}
+              입니다. 이 기능을 이용하기 위해서는 GenU에서 RAG 채팅(Knowledge
+              Base)가 활성화되어 있어야 합니다. 활성화 방법은{' '}
               <a
                 className="text-aws-smile"
                 href="https://github.com/aws-samples/generative-ai-use-cases-jp/blob/main/docs/DEPLOY_OPTION.md#rag-%E3%83%81%E3%83%A3%E3%83%83%E3%83%88-knowledge-base-%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E3%81%AE%E6%9C%89%E5%8A%B9%E5%8C%96"
                 target="_blank">
-                こちら
+                여기
               </a>
               。
               <PromptSample
-                title="シンプルな RAG"
-                prompt={`あなたは、ユーザーの質問に答える AI アシスタントです。
-以下の情報を読み込んでください。
+                title="심플한 RAG"
+                prompt={`당신은 사용자의 질문에 답하는 AI 어시스턴트입니다.
+아래 정보를 입력해 주세요.
 
-<情報>
-{{retrieveKnowledgeBase:質問}}
-</情報>
+<정보
+{{retrieveKnowledgeBase:질문}}
+<정보>{{retrieveKnowledgeBase:질문}}
 
-上の情報を参考に、以下の質問に答えてください。
+위의 정보를 참고하여 아래 질문에 답해 주세요.
 
-<質問>
-{{text:質問}}
-</質問>`}
+<질문
+{{text:질문}}
+</질문>`}
               />
             </div>
           </div>
