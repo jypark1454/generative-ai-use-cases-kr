@@ -115,15 +115,15 @@ const PromptSettings: React.FC<Props> = (props) => {
   return (
     <div className="p-2 h-dvh flex flex-col gap-2">
       <div>
-        <div className="text-base font-semibold mb-1">プロンプト設定</div>
+        <div className="text-base font-semibold mb-1">프롬프트 설정</div>
         <div className="font-light text-aws-font-color-gray mb-1 text-xs">
-          この拡張機能で利用したいプロンプトを設定してください。ドラッグ &
-          ドロップで設定できます。「利用するプロンプト」は、プロンプトごとに詳細な設定を行うことも可能です。
+          이 확장 프로그램에서 사용할 프롬프트를 설정합니다. 드래그 &
+          드롭으로 설정할 수 있습니다. "사용하는 프롬프트"는 각 프롬프트에 대해 상세한 설정을 할 수 있습니다.
         </div>
       </div>
 
       <div className="h-1/2 flex flex-col">
-        <div className="text-sm font-semibold mb-1">利用するプロンプト</div>
+        <div className="text-sm font-semibold mb-1">사용하는 프롬프트</div>
         <div ref={drop} className="h-full overflow-y-auto bg-white/10 border rounded">
           {prompts.map((prompt, i) => renderAvailablePromptItem(prompt, i))}
         </div>
@@ -140,7 +140,7 @@ const PromptSettings: React.FC<Props> = (props) => {
               setisSelectedPreset(false);
             }}
           >
-            登録済みのシステムプロンプト
+            등록된 시스템 프롬프트
           </div>
           <div
             className={twMerge(
@@ -151,7 +151,7 @@ const PromptSettings: React.FC<Props> = (props) => {
               setisSelectedPreset(true);
             }}
           >
-            <PiDesktopTower /> プリセット
+            <PiDesktopTower /> 프리셋
           </div>
         </div>
         <div className="h-full overflow-y-auto bg-white/10 border rounded-b rounded-tr">
@@ -163,7 +163,7 @@ const PromptSettings: React.FC<Props> = (props) => {
 
       <div className="flex justify-between">
         <Button outlined icon={<PiCaretLeft />} onClick={props.onBack}>
-          戻る
+          뒤로
         </Button>
       </div>
     </div>

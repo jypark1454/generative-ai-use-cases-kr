@@ -30,13 +30,13 @@ const useSettings = () => {
           if (typeof value === 'boolean') {
             draft[key] = value;
           } else {
-            throw new Error(`${key}は、boolean型で入力してください`);
+            throw new Error(`${key}는 boolean 형식으로 입력하세요.`);
           }
         } else {
           if (typeof value === 'string') {
             draft[key] = value;
           } else {
-            throw new Error(`${key}は、string型で入力してください`);
+            throw new Error(`${key}는 string형으로 입력하세요.`);
           }
         }
       }),

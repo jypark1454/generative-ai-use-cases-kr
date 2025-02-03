@@ -205,7 +205,7 @@ const WebContent: React.FC = () => {
   return (
     <div className="grid grid-cols-12">
       <div className="invisible col-span-12 my-0 flex h-0 items-center justify-center text-xl font-semibold lg:visible lg:my-5 lg:h-min print:visible print:my-5 print:h-min">
-        Web コンテンツ抽出
+        웹 콘텐츠 추출
       </div>
 
       <div className="col-span-12 col-start-1 mx-2 lg:col-span-10 lg:col-start-2 xl:col-span-10 xl:col-start-2">
@@ -217,14 +217,14 @@ const WebContent: React.FC = () => {
             onDissmiss={() => {
               setShowError(false);
             }}>
-            指定した URL
-            にアクセスした際にエラーが発生しました。スクレイピングが禁止されているか
+            지정한 URL
+            에 액세스하는 중에 오류가 발생했습니다. 스크래핑이 금지되어 있습니까?
             URL
-            が間違っている可能性があります。一時的な問題と思われる場合は、再実行してください。
+            이 잘못되었을 수 있습니다. 일시적인 문제라고 생각되면 다시 실행하십시오.
           </Alert>
         )}
 
-        <Card label="コンテンツを抽出したい Web サイト">
+        <Card label="콘텐츠를 추출하려는 웹 사이트">
           <div className="mb-2 flex w-full">
             <Select
               value={modelId}
@@ -236,13 +236,13 @@ const WebContent: React.FC = () => {
           </div>
 
           <div className="text-xs text-black/50">
-            ブログ、記事、ドキュメント等、テキストがメインコンテンツである Web
-            サイトを指定してください。そうでない場合、正常に出力されないことがあります。
+            블로그, 기사, 문서 등 텍스트가 메인 콘텐츠인 웹
+            사이트를 지정합니다. 그렇지 않으면 정상적으로 출력되지 않을 수 있습니다.
           </div>
 
           <RowItem>
             <InputText
-              placeholder="URL を入力してください"
+              placeholder="URL을 입력하십시오."
               value={url}
               onChange={(value) => {
                 setUrl(value);
@@ -250,9 +250,9 @@ const WebContent: React.FC = () => {
             />
           </RowItem>
 
-          <ExpandableField label="追加コンテキスト" optional>
+          <ExpandableField label="추가 컨텍스트" optional>
             <Textarea
-              placeholder="追加で考慮してほしい点を入力することができます（例: 要約して）"
+              placeholder="추가로 고려해야 할 점을 입력 할 수 있습니다 (예 : 요약)"
               value={context}
               onChange={setContext}
             />
@@ -260,15 +260,15 @@ const WebContent: React.FC = () => {
 
           <div className="flex justify-end gap-3">
             {stopReason === 'max_tokens' && (
-              <Button onClick={continueGeneration}>続きを出力</Button>
+              <Button onClick={continueGeneration}>계속 출력</Button>
             )}
 
             <Button outlined onClick={onClickClear} disabled={disabledExec}>
-              クリア
+              지우기
             </Button>
 
             <Button disabled={disabledExec} onClick={onClickExec}>
-              実行
+              실행
             </Button>
           </div>
 
@@ -276,7 +276,7 @@ const WebContent: React.FC = () => {
             <Markdown>{typingTextOutput}</Markdown>
             {!loading && !fetching && content === '' && (
               <div className="text-gray-500">
-                抽出された文章がここに表示されます
+                추출된 문장이 여기에 표시됩니다.
               </div>
             )}
             {(loading || fetching) && (
@@ -290,14 +290,14 @@ const WebContent: React.FC = () => {
           </div>
 
           <ExpandableField
-            label={`抽出前のテキスト (${
-              fetching ? '読み込み中...' : text === '' ? '未取得' : '取得済'
+            label={`추출 전 텍스트 (${
+              fetching ? '로드 중...' : text === '' ? '얻지 못함' : '얻음'
             })`}
             className="mt-2">
             <div className="rounded border border-black/30 p-1.5">
               {text === '' && (
                 <div className="text-gray-500">
-                  未取得です。URL を入力して実行ボタンを押してください。
+                  얻지 못했습니다. URL을 입력하고 실행 버튼을 누릅니다.
                 </div>
               )}
               {text}

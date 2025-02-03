@@ -14,23 +14,23 @@ type Props = BaseProps & {
 
 const DialogConfirmDeleteChat: React.FC<Props> = (props) => {
   return (
-    <ModalDialog {...props} title="削除確認">
+    <ModalDialog {...props} title="삭제 확인">
       <div>
-        チャット
+        채팅
         <span className="font-bold">「{props.target?.title}」</span>
-        を削除しますか？
+        을 삭제하시겠습니까?
       </div>
 
       <div className="mt-4 flex justify-end gap-2">
         <Button outlined onClick={props.onClose} className="p-2">
-          キャンセル
+        취소
         </Button>
         <Button
           onClick={() => {
             props.onDelete(decomposeId(props.target?.chatId ?? '') ?? '');
           }}
           className="bg-red-500 p-2 text-white">
-          削除
+          삭제
         </Button>
       </div>
     </ModalDialog>

@@ -306,7 +306,7 @@ const VideoAnalyzerPage: React.FC = () => {
                     outlined
                     onClick={onClickClear}
                     disabled={loading || sending || content.length === 0}>
-                    クリア
+                    지우기
                   </Button>
                 </div>
               </div>

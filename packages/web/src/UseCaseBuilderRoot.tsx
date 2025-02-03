@@ -27,13 +27,13 @@ const UseCaseBuilderRoot: React.FC = () => {
     () =>
       [
         {
-          label: 'サンプル集',
+          label: '샘플 모음',
           to: ROUTE_INDEX_USE_CASE_BUILDER,
           icon: <PiSwatches />,
           display: 'usecase' as const,
         },
         {
-          label: 'マイユースケース',
+          label: '내 사용 사례',
           to: `${ROUTE_INDEX_USE_CASE_BUILDER}/my-use-case`,
           icon: <PiListDashes />,
           display: 'usecase' as const,

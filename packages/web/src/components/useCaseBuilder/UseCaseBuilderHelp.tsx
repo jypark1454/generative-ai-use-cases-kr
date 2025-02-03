@@ -45,7 +45,7 @@ const UseCaseBuilderHelp = () => {
   return (
     <div className="flex flex-col gap-y-8 py-4">
       <div className="flex flex-col gap-y-4">
-        <div className="text-lg font-bold">プロンプトテンプレートとは？</div>
+        <div className="text-lg font-bold">프롬프트 템플릿이란?</div>
         <div className="text-sm leading-relaxed">
           생성형 AI
           에 지시를 내리기 위한 '틀'과 같은 것입니다. 목적에 따라 미리 지시문의 틀을 준비해 둘 수 있습니다.
@@ -68,7 +68,7 @@ const UseCaseBuilderHelp = () => {
       </div>
 
       <div className="flex flex-col gap-y-4">
-        <div className="text-lg font-bold">Placeholder 一覧</div>
+        <div className="text-lg font-bold">Placeholder 목록</div>
 
         <div className="flex flex-col gap-y-10">
           <div className="flex flex-col gap-y-4">

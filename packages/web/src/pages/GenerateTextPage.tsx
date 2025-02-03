@@ -151,10 +151,10 @@ const GenerateTextPage: React.FC = () => {
   return (
     <div className="grid grid-cols-12">
       <div className="invisible col-span-12 my-0 flex h-0 items-center justify-center text-xl font-semibold lg:visible lg:my-5 lg:h-min print:visible print:my-5 print:h-min">
-        文章生成
+        기사 생성
       </div>
       <div className="col-span-12 col-start-1 mx-2 lg:col-span-10 lg:col-start-2 xl:col-span-10 xl:col-start-2">
-        <Card label="文章の元になる情報">
+        <Card label="문장의 기초가 되는 정보">
           <div className="mb-2 flex w-full">
             <Select
               value={modelId}
@@ -166,29 +166,29 @@ const GenerateTextPage: React.FC = () => {
           </div>
 
           <Textarea
-            placeholder="入力してください"
+            placeholder="입력해주세요"
             value={information}
             onChange={setInformation}
             maxHeight={-1}
           />
 
           <Textarea
-            placeholder="文章の形式を指示してください。(マークダウン、ブログ、ビジネスメールなど)"
+            placeholder="문장의 형식을 알려주십시오. (마크 다운, 블로그, 비즈니스 메일 등)"
             value={context}
             onChange={setContext}
           />
 
           <div className="flex justify-end gap-3">
             {stopReason === 'max_tokens' && (
-              <Button onClick={continueGeneration}>続きを出力</Button>
+              <Button onClick={continueGeneration}>계속 출력</Button>
             )}
 
             <Button outlined onClick={onClickClear} disabled={disabledExec}>
-              クリア
+              지우기
             </Button>
 
             <Button disabled={disabledExec} onClick={onClickExec}>
-              実行
+              실행
             </Button>
           </div>
 
@@ -196,7 +196,7 @@ const GenerateTextPage: React.FC = () => {
             <Markdown>{typingTextOutput}</Markdown>
             {!loading && text === '' && (
               <div className="text-gray-500">
-                生成された文章がここに表示されます
+                생성된 문장이 여기에 표시됩니다.
               </div>
             )}
             {loading && (

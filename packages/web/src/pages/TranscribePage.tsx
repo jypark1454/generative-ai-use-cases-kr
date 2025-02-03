@@ -166,7 +166,7 @@ const TranscribePage: React.FC = () => {
       <div className="col-span-12 col-start-1 mx-2 lg:col-span-10 lg:col-start-2 xl:col-span-10 xl:col-start-2">
         <Card>
           <div className="mb-2 flex justify-center text-sm text-gray-500">
-            マイク入力 or ファイルアップロードから選択してください
+            마이크 입력 or 파일 업로드 중에서 선택하세요.
           </div>
           <div className="mb-4 flex flex-col justify-center sm:flex-row">
             <div className="basis-1/2 p-2 xl:basis-2/5">
@@ -218,12 +218,12 @@ const TranscribePage: React.FC = () => {
             </div>
           </div>
           <ExpandableField
-            label="詳細なパラメータ"
+            label="상세 파라미터"
             className="p-2"
             notItem={true}>
             <div className="grid grid-cols-2 gap-2 pt-2">
               <Switch
-                label="話者認識"
+                label="화자 인식"
                 checked={speakerLabel}
                 onSwitch={setSpeakerLabel}
               />
@@ -235,14 +235,14 @@ const TranscribePage: React.FC = () => {
                   max={10}
                   value={maxSpeakers}
                   onChange={setMaxSpeakers}
-                  help="認識する話者の最大数"
+                  help="인식할 화자의 최대 수"
                 />
               )}
             </div>
             {speakerLabel && (
               <div className="">
                 <Textarea
-                  placeholder="話し手の名前（カンマ区切り）"
+                  placeholder="화자의 이름(쉼표로 구분)"
                   value={speakers}
                   onChange={setSpeakers}
                 />
@@ -251,10 +251,10 @@ const TranscribePage: React.FC = () => {
           </ExpandableField>
           <div className="flex justify-end gap-3">
             <Button outlined disabled={disableClearExec} onClick={onClickClear}>
-              クリア
+              지우기
             </Button>
             <Button disabled={disabledExec} onClick={onClickExec}>
-              実行
+              실행
             </Button>
           </div>
           <div className="mt-5 rounded border border-black/30 p-1.5">
@@ -276,7 +276,7 @@ const TranscribePage: React.FC = () => {
             )}
             {!loading && formattedOutput == '' && (
               <div className="text-gray-500">
-                音声認識結果がここに表示されます
+                음성 인식 결과가 여기에 표시됩니다.
               </div>
             )}
             {loading && (

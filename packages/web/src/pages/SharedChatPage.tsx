@@ -91,7 +91,7 @@ const SharedChatPage: React.FC = () => {
                 />
                 <div className="peer-checked:bg-aws-smile peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:size-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white rtl:peer-checked:after:-translate-x-full"></div>
                 <span className="ml-1 text-xs font-medium">
-                  システムプロンプトの表示
+                  시스템 프롬프트 표시
                 </span>
               </label>
             </div>
@@ -133,10 +133,10 @@ const SharedChatPage: React.FC = () => {
             Error {error.response.status}
             {error.response.status === 404 ? (
               <div className="mt-2 text-sm">
-                ページが見つかりませんでした。会話履歴がシェアされていないか、削除された可能性があります。
+                페이지를 찾을 수 없습니다. 대화 기록이 공유되지 않았거나 삭제되었을 수 있습니다.
               </div>
             ) : (
-              <div className="mt-2 text-sm">管理者に問い合わせてください。</div>
+              <div className="mt-2 text-sm">관리자에게 문의하십시오.</div>
             )}
           </div>
         )}

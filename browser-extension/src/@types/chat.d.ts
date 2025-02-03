@@ -27,7 +27,7 @@ export type Message = {
   // 追加データ（画像など）
   extraData?: ExtraData[];
   llmType?: string;
-  // プロンプトのタイトル
+  // プロンプトの제목
   title?: string;
 };
 

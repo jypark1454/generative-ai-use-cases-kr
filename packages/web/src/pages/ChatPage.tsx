@@ -151,9 +151,9 @@ const ChatPage: React.FC = () => {
 
   const title = useMemo(() => {
     if (chatId) {
-      return getChatTitle(chatId) || 'チャット';
+      return getChatTitle(chatId) || '채팅';
     } else {
-      return 'チャット';
+      return '채팅';
     }
   }, [chatId, getChatTitle]);
 
@@ -379,7 +379,7 @@ const ChatPage: React.FC = () => {
             className="fixed bottom-0 left-0 right-0 top-0 z-[999] bg-slate-300 p-10 text-center">
             <div className="flex h-full w-full items-center justify-center outline-dashed">
               <div className="font-bold">
-                ファイルをドロップしてアップロード
+                파일을 삭제하고 업로드
               </div>
             </div>
           </div>
@@ -415,14 +415,14 @@ const ChatPage: React.FC = () => {
                     setShowShareIdModal(true);
                   }}>
                   <PiShareFatFill className="mr-1" />
-                  {share ? <>シェア中</> : <>シェアする</>}
+                  {share ? <>공유 중</> : <>공유하기</>}
                 </button>
               </div>
             )}
             <Switch
               checked={showSystemContext}
               onSwitch={setShowSystemContext}
-              label="システムプロンプトの表示"
+              label="시스템 프롬프트 표시"
             />
           </div>
         )}
@@ -452,7 +452,7 @@ const ChatPage: React.FC = () => {
         <div className="fixed bottom-0 z-0 flex w-full flex-col items-center justify-center lg:pr-64 print:hidden">
           {isEmpty && !loadingMessages && !chatId && (
             <ExpandableField
-              label="システムプロンプト"
+              label="시스템 프롬프트"
               className="relative w-11/12 md:w-10/12 lg:w-4/6 xl:w-3/6">
               <>
                 <div className="absolute -top-2 right-0 mb-2 flex justify-end">
@@ -463,7 +463,7 @@ const ChatPage: React.FC = () => {
                       clear();
                       setInputSystemContext(currentSystemContext);
                     }}>
-                    初期化
+                    초기화
                   </Button>
                   <Button
                     outlined
@@ -472,7 +472,7 @@ const ChatPage: React.FC = () => {
                       setSaveSystemContext(inputSystemContext);
                       setShowSystemContextModal(true);
                     }}>
-                    保存
+                    저장
                   </Button>
                 </div>
 
@@ -529,16 +529,16 @@ const ChatPage: React.FC = () => {
 
       <ModalDialog
         isOpen={showShareIdModal}
-        title="会話履歴のシェア"
+        title="대화 기록 공유"
         onClose={() => {
           setShowShareIdModal(false);
         }}>
         <div className="py-3 text-xs text-gray-600">
           {share ? (
-            <>リンクを削除することで、会話履歴の公開を停止できます。</>
+            <>링크를 삭제하면 대화 기록 게시를 중지할 수 있습니다.</>
           ) : (
             <>
-              リンクを作成することで、このアプリケーションにログイン可能な全ユーザーに対して会話履歴を公開します。
+              링크를 만들어 이 애플리케이션에 로그인할 수 있는 모든 사용자에게 대화 기록을 게시합니다.
             </>
           )}
         </div>
@@ -558,18 +558,18 @@ const ChatPage: React.FC = () => {
                 outlined
                 className="mr-1"
                 loading={deletingShareId}>
-                リンクを開く
+                링크 열기
               </Button>
               <Button
                 onClick={onDeleteShareId}
                 loading={deletingShareId}
                 className="bg-red-500">
-                リンクの削除
+                링크 삭제
               </Button>
             </div>
           ) : (
             <Button onClick={onCreateShareId} loading={creatingShareId}>
-              リンクの作成
+              링크 만들기
             </Button>
           )}
         </div>

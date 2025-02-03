@@ -9,7 +9,7 @@
         "/search": {
             "get": {
                 "summary": "Get information from search engine",
-                "description": "キーワードで検索し情報を取得します。調査、調べる、Xについて教える、まとめるといったタスクで利用できます。会話から検索キーワードを推測してください。検索結果には関連度の低い内容も含まれているため関連度の高い内容のみを参考に回答してください。複数回実行可能です。",
+                "description": "키워드로 검색하여 정보를 얻습니다. 조사, 조사하기, X에 대해 가르치기, 정리하기 등의 작업에 사용할 수 있습니다. 대화에서 검색 키워드를 추측해 보세요. 검색 결과에는 관련성이 낮은 내용도 포함되어 있으므로 관련성이 높은 내용만 참고하여 답변하세요. 여러 번 실행할 수 있습니다.",
                 "operationId": "Search",
                 "requestBody": {
                     "required": true,
@@ -20,7 +20,7 @@
                                 "properties": {
                                     "keyword": {
                                         "type": "string",
-                                        "description": "検索キーワード"
+                                        "description": "검색 키워드"
                                     }
                                 },
                                 "required": [
@@ -32,7 +32,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "検索結果",
+                        "description": "검색 결과",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -40,7 +40,7 @@
                                     "properties": {
                                         "results": {
                                             "type": "string",
-                                            "description": "検索結果"
+                                            "description": "검색 결과"
                                         }
                                     }
                                 }

@@ -133,8 +133,8 @@ const GenerateImageAssistant: React.FC<Props> = (props) => {
   return (
     <div className="relative size-full">
       <Card
-        label="チャット形式で画像生成"
-        help="チャット形式でプロンプトの生成と設定、画像生成を自動で行います。"
+        label="채팅 형식으로 이미지 생성"
+        help="채팅 형식으로 프롬프트 생성 및 설정, 이미지 생성을 자동으로 수행합니다."
         className={`${props.className ?? ''} h-full pb-32`}>
         <div className="mb-2 flex w-full">
           <Select
@@ -152,27 +152,27 @@ const GenerateImageAssistant: React.FC<Props> = (props) => {
             <div className="rounded border border-gray-400 bg-gray-100/50 p-2 text-gray-600">
               <div className="flex items-center font-bold">
                 <PiLightbulbFilamentBold className="mr-2" />
-                ヒント
+                팁
               </div>
               <div className="m-1 rounded border p-2 text-sm">
-                具体的かつ詳細な指示を出すようにしましょう。
-                形容詞や副詞を使って、正確に表現することが重要です。
+               구체적이고 상세한 지시를 내도록 합시다.
+               형용사와 부사를 사용하여 정확하게 표현하는 것이 중요합니다.
               </div>
               <div className="m-1 rounded border p-2 text-sm">
-                「犬が遊んでいる」ではなく、「柴犬が草原で楽しそうに走り回っている」のように具体的に指示をしましょう。
+               '개가 놀고 있다'가 아니라 '시바개가 초원에서 즐겁게 뛰어다니'처럼 구체적으로 지시를 합시다.
               </div>
               <div className="m-1 rounded border p-2 text-sm">
-                文章で書くことが難しい場合は、文章で書く必要はありません。「元気、ボール遊び、ジャンプしている」のように、特徴を羅列して指示をしましょう。
+               문장으로 작성하기 어려운 경우에는 문장으로 작성할 필요가 없습니다. "건강, 공 놀이, 점프하고있다"와 같이 특징을 나열하고 지시를합시다.
               </div>
               <div className="m-1 rounded border p-2 text-sm">
-                除外して欲しい要素も指示することができます。「人間は出力しない」など。
+               제외하고 싶은 요소도 지시할 수 있습니다. 「사람은 출력하지 않는다」 등.
               </div>
               <div className="m-1 rounded border p-2 text-sm">
                 LLM
-                が会話の流れを考慮してくれるので、「やっぱり犬じゃなくて猫にして」などの会話形式の指示もできます。
+                하지만 대화의 흐름을 고려해 주기 때문에, 「역시 개가 아니고 고양이로 해」등의 대화 형식의 지시도 할 수 있습니다.
               </div>
               <div className="m-1 rounded border p-2 text-sm">
-                プロンプトで意図した画像が生成できない場合は、初期画像の設定やパラメータの変更を試してみましょう。
+               프롬프트에서 의도한 이미지를 생성할 수 없는 경우 초기 이미지를 설정하거나 파라미터를 변경해 보세요.
               </div>
             </div>
           )}
@@ -194,14 +194,14 @@ const GenerateImageAssistant: React.FC<Props> = (props) => {
                 <div>
                   <div className="flex items-center gap-2 font-bold text-red-500">
                     <PiWarningFill />
-                    エラー
+                    오류
                   </div>
                   <div className="text-gray-600">
-                    プロンプト生成中にエラーが発生しました。
+                   프롬프트를 생성하는 중에 오류가 발생했습니다.
                   </div>
                   <div className="mt-3 flex w-full justify-center">
                     <Button outlined onClick={onRetrySend}>
-                      再実行
+                      재실행
                     </Button>
                   </div>
                 </div>
@@ -211,7 +211,7 @@ const GenerateImageAssistant: React.FC<Props> = (props) => {
                 !c.content.error && (
                   <div className="flex items-center gap-2 text-gray-600">
                     <div className="border-aws-sky size-5 animate-spin rounded-full border-4 border-t-transparent"></div>
-                    プロンプト生成中
+                    프롬프트 생성 중
                   </div>
                 )}
               {c.role === 'assistant' && c.content.prompt !== null && (
@@ -222,11 +222,11 @@ const GenerateImageAssistant: React.FC<Props> = (props) => {
                     <>
                       <div className="flex items-center gap-2 text-gray-600">
                         <div className="size-5 rounded-full border-4 border-gray-600"></div>
-                        プロンプト生成完了
+                        프롬프트 생성 완료
                       </div>
                       <div className="flex items-center gap-2 text-gray-600">
                         <div className="border-aws-sky size-5 animate-spin rounded-full border-4 border-t-transparent"></div>
-                        画像生成中
+                        이미지 생성 중
                       </div>
                     </>
                   ) : (
@@ -235,7 +235,7 @@ const GenerateImageAssistant: React.FC<Props> = (props) => {
                         <div key={idx}>{m}</div>
                       ))}
                       <div className="mt-3">
-                        <div className="font-bold">おすすめの StylePreset</div>
+                        <div className="font-bold">추천 StylePreset</div>
                         <div className="mt-1 grid grid-cols-2 gap-1 xl:flex xl:gap-3">
                           {c.content.recommendedStylePreset.flatMap(
                             (preset, idx) => (
@@ -261,7 +261,7 @@ const GenerateImageAssistant: React.FC<Props> = (props) => {
                                 ''
                               );
                             }}>
-                            未設定
+                            미설정
                           </Button>
                         </div>
                       </div>
@@ -274,7 +274,7 @@ const GenerateImageAssistant: React.FC<Props> = (props) => {
         </div>
         <div className="absolute bottom-0 z-0 -ml-2 flex w-full items-end justify-center pr-6">
           <InputChatContent
-            placeholder="出力したい画像の概要を入力"
+            placeholder="출력하고 싶은 이미지의 개요를 입력"
             fullWidth
             hideReset
             content={props.content}

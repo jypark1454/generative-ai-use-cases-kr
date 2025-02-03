@@ -74,7 +74,7 @@ const UseCaseBuilderMyUseCasePage: React.FC = () => {
         <div className="flex flex-row">
           <div className="flex-1" />
           <div className="hidden flex-row items-center justify-center text-xl font-semibold lg:flex print:flex">
-            マイユースケース
+            내 사용 사례
           </div>
           <div className="flex flex-1 justify-end">
             <Button
@@ -98,7 +98,7 @@ const UseCaseBuilderMyUseCasePage: React.FC = () => {
           )}
           {!isLoadingMyUseCases && myUseCases.length === 0 && (
             <div className="flex h-full w-full items-center justify-center py-16 text-sm font-bold text-gray-400">
-              マイユースケースがありません。
+              내 사용 사례가 없습니다.
             </div>
           )}
           {myUseCases.map((useCase, idx) => {

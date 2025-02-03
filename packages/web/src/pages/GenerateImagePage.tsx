@@ -844,9 +844,9 @@ const GenerateImagePage: React.FC = () => {
     <div className="grid h-screen grid-cols-12 gap-4 p-4">
       <ModalDialog
         isOpen={isOpenSketch}
-        title="初期画像の設定"
+        title="초기 이미지 설정"
         className="w-[530px]"
-        help="画像生成の初期状態として使われます。指定した画像に近い画像が生成されます。"
+        help="이미지 생성의 초기 상태로 사용됩니다. 지정된 이미지에 가까운 이미지가 생성됩니다."
         onClose={() => {
           setIsOpenSketch(false);
         }}>
@@ -862,9 +862,9 @@ const GenerateImagePage: React.FC = () => {
       </ModalDialog>
       <ModalDialog
         isOpen={isOpenMask}
-        title="マスク画像の設定"
+        title="마스크 이미지 설정"
         className="w-[530px]"
-        help="画像生成のマスクとして使われます。マスクした範囲（Inpaint）もしくは外側（Outpaint）が生成されます。"
+        help="이미지 생성 마스크로 사용됩니다. 마스크된 범위(Inpaint) 또는 외부(Outpaint)가 생성됩니다."
         onClose={() => {
           setIsOpenMask(false);
         }}>
@@ -890,7 +890,7 @@ const GenerateImagePage: React.FC = () => {
           onChangeContent={setChatContent}
           isGeneratingImage={generating}
           onGenerate={async (p, np, sp) => {
-            // 設定に変更があった場合のみ生成する
+            // 설정이 변경된 경우에만 생성
             if (
               p !== prompt ||
               np !== negativePrompt ||
@@ -953,16 +953,16 @@ const GenerateImagePage: React.FC = () => {
           {generationMode !== 'BACKGROUND_REMOVAL' && (
             <>
               <Textarea
-                label="プロンプト"
-                help="生成したい画像の説明を記載してください。文章ではなく、単語の羅列で記載します。"
+                label="프롬프트"
+                help="생성하려는 이미지에 대한 설명을 기재하십시오. 문장이 아니라 단어의 열로 기재합니다."
                 value={prompt}
                 onChange={setPrompt}
                 maxHeight={60}
                 rows={2}
               />
               <Textarea
-                label="ネガティブプロンプト"
-                help="生成したくない要素、排除したい要素を記載してください。文章ではなく、単語の羅列で記載します。"
+                label="부정적인 프롬프트"
+                help="생성하고 싶지 않은 요소, 제거하고 싶은 요소를 기재해 주세요. 문장이 아니라 단어의 열로 기재합니다."
                 value={negativePrompt}
                 onChange={setNegativePrompt}
                 maxHeight={60}
@@ -973,7 +973,7 @@ const GenerateImagePage: React.FC = () => {
 
           <div className="grid w-full grid-cols-2 gap-2">
             <Select
-              label="モデル"
+              label="모델"
               value={imageGenModelId}
               onChange={setImageGenModelId}
               options={imageGenModelIds.map((m) => {
@@ -982,7 +982,7 @@ const GenerateImagePage: React.FC = () => {
             />
             {generationMode !== 'BACKGROUND_REMOVAL' && (
               <Select
-                label="サイズ"
+                label="사이즈"
                 value={resolution.value}
                 onChange={(value: string) => {
                   const selectedResolution = resolutionPresets.find(
@@ -1010,7 +1010,7 @@ const GenerateImagePage: React.FC = () => {
                   onChange={(n) => {
                     setSeed(n, selectedImageIndex);
                   }}
-                  help="乱数のシード値です。同じシード値を指定すると同じ画像が生成されます。"
+                  help="난수의 시드 값입니다. 동일한 시드 값을 지정하면 동일한 이미지가 생성됩니다."
                 />
                 <ButtonIcon
                   className="absolute -top-0.5 right-[8.2rem]"
@@ -1021,18 +1021,18 @@ const GenerateImagePage: React.FC = () => {
 
               <RangeSlider
                 className="col-span-2 lg:col-span-1"
-                label="画像生成数"
+                label="이미지 생성 수"
                 min={1}
                 max={7}
                 value={imageSample}
                 onChange={setImageSample}
-                help="Seed をランダム設定しながら画像を指定の数だけ同時に生成します。"
+                help="Seed를 임의로 설정하면서 이미지를 지정된 수만큼 동시에 생성합니다."
               />
             </div>
           )}
 
           <ExpandableField
-            label="詳細なパラメータ"
+            label="상세 파라미터"
             overrideExpanded={detailExpanded}
             setOverrideExpanded={setDetailExpanded}>
             <div className="grid grid-cols-2 gap-2 pt-4">
@@ -1050,11 +1050,11 @@ const GenerateImagePage: React.FC = () => {
                   {generationMode !== GENERATION_MODES.TEXT_IMAGE && (
                     <div className="flex flex-col items-center">
                       <div className="mb-1 flex items-center text-sm font-bold">
-                        初期画像
+                        초기 이미지
                         <Help
                           className="ml-1"
                           position="center"
-                          message="画像生成の初期状態となる画像を設定できます。初期画像を設定することで、初期画像に近い画像を生成するように誘導できます。"
+                          message="이미지 생성의 초기 상태가 되는 이미지를 설정할 수 있습니다. 초기 이미지를 설정하여 초기 이미지에 가까운 이미지를 생성하도록 유도할 수 있습니다."
                         />
                       </div>
                       <Base64Image
@@ -1067,18 +1067,18 @@ const GenerateImagePage: React.FC = () => {
                           setIsOpenSketch(true);
                         }}>
                         <PiFileArrowUp className="mr-2" />
-                        設定
+                        설정
                       </Button>
                     </div>
                   )}
                   {maskMode && (
                     <div className="flex flex-col items-center">
                       <div className="mb-1 flex items-center text-sm font-bold">
-                        マスク画像
+                        마스크 이미지
                         <Help
                           className="ml-1"
                           position="center"
-                          message="画像のマスクを設定できます。マスク画像を設定することで、マスクされた領域（Inpaint）もしくは外側の領域（Outpaint)を生成できます。マスクプロンプトと併用はできません。"
+                          message="이미지 마스크를 설정할 수 있습니다. 마스크 이미지를 설정하여 마스크된 영역(Inpaint) 또는 외부 영역(Outpaint)을 생성할 수 있습니다. 마스크 프롬프트와 함께 사용할 수 없습니다."
                         />
                       </div>
                       <Base64Image
@@ -1092,15 +1092,15 @@ const GenerateImagePage: React.FC = () => {
                           setIsOpenMask(true);
                         }}>
                         <PiFileArrowUp className="mr-2" />
-                        設定
+                        설정
                       </Button>
                     </div>
                   )}
                 </div>
                 {maskMode && maskPromptSupported && (
                   <Textarea
-                    label="マスクプロンプト"
-                    help="マスクしたい/排除したい要素（Inpaint）、マスクしたくない/残したい要素（Outpaint）を記載してください。文章ではなく、単語の羅列で記載します。マスク画像と併用はできません。"
+                    label="마스크 프롬프트"
+                    help="마스크하고 싶은 / 제거하고 싶은 요소 (Inpaint), 마스크하고 싶지 않은 / 남기고 싶은 요소 (Outpaint)를 기재하십시오. 문장이 아니라 단어의 열로 기재합니다. 마스크 이미지와 함께 사용할 수 없습니다."
                     value={maskPrompt}
                     onChange={setMaskPrompt}
                     maxHeight={60}
@@ -1113,8 +1113,8 @@ const GenerateImagePage: React.FC = () => {
                   <div className="space-y-4">
                     <div>
                       <Select
-                        label="プリセットパレット"
-                        help="プリセットのカラーパレットから選択できます"
+                        label="프리셋 팔레트"
+                        help="프리셋 컬러 팔레트에서 선택할 수 있습니다."
                         options={colorsOptions}
                         value={
                           colorsOptions.find(
@@ -1135,7 +1135,7 @@ const GenerateImagePage: React.FC = () => {
 
                     <div>
                       <label className="text-sm font-bold">
-                        カスタムカラー
+                        맞춤 색상
                       </label>
                       <div className="mt-2 space-y-2">
                         {colorList.map((color, index) => (
@@ -1182,7 +1182,7 @@ const GenerateImagePage: React.FC = () => {
                           }}
                           className="mt-2"
                           disabled={colorList.length >= 5}>
-                          カラーを追加
+                          색상 추가
                         </Button>
                       </div>
                     </div>
@@ -1190,8 +1190,8 @@ const GenerateImagePage: React.FC = () => {
                 )}
                 {generationMode === 'IMAGE_CONDITIONING' && (
                   <Select
-                    label="コントロールモード"
-                    help="CANNY_EDGE:参照画像のエッジを抽出します。詳細な模様などを反映したい場合に最適です。SEGMENTATION:参照画像内を領域に区切ります。複数の物体の位置関係を反映したい場合に最適です。"
+                    label="제어 모드"
+                    help="CANNY_EDGE: 참조 이미지의 가장자리를 추출합니다. 자세한 패턴 등을 반영하고 싶은 경우에 최적입니다. SEGMENTATION: 참조 이미지를 영역으로 구분합니다. 복수의 물체의 위치 관계를 반영하고 싶은 경우에 최적입니다."
                     options={controlModeOptions}
                     value={controlMode}
                     onChange={(v) => setControlMode(v as ControlMode)}
@@ -1220,7 +1220,7 @@ const GenerateImagePage: React.FC = () => {
                     max={30}
                     value={cfgScale}
                     onChange={setCfgScale}
-                    help="この値が高いほどプロンプトに対して忠実な画像を生成します。"
+                    help="이 값이 높을수록 프롬프트에 충실한 이미지를 생성합니다."
                   />
 
                   <RangeSlider
@@ -1230,7 +1230,7 @@ const GenerateImagePage: React.FC = () => {
                     max={50}
                     value={step}
                     onChange={setStep}
-                    help="画像生成の反復回数です。Step 数が多いほど画像が洗練されますが、生成に時間がかかります。"
+                    help="이미지 생성의 반복 횟수입니다. Step 수가 많을수록 이미지가 세련되지만 생성에 시간이 걸립니다."
                   />
 
                   {generationMode === GENERATION_MODES.IMAGE_VARIATION && (
@@ -1242,7 +1242,7 @@ const GenerateImagePage: React.FC = () => {
                       step={0.01}
                       value={imageStrength}
                       onChange={setImageStrength}
-                      help="1に近いほど「初期画像」に近い画像が生成され、0に近いほど「初期画像」とは異なる画像が生成されます。"
+                      help="1에 가까울수록 '초기 이미지'에 가까운 이미지가 생성되고, 0에 가까울수록 '초기 이미지'와 다른 이미지가 생성됩니다."
                     />
                   )}
                   {generationMode === 'IMAGE_CONDITIONING' && (
@@ -1254,7 +1254,7 @@ const GenerateImagePage: React.FC = () => {
                       step={0.01}
                       value={controlStrength}
                       onChange={setControlStrength}
-                      help="1に近いほど「参照画像」の構図に基づいた画像が生成され、0に近いほど「参照画像」の構図とは異なる画像が生成されます。"
+                      help="1에 가까울수록 '참조 이미지'의 구도를 기반으로 하는 이미지가 생성되고 0에 가까울수록 '참조 이미지'의 구도와 다른 이미지가 생성됩니다."
                     />
                   )}
                 </div>
@@ -1286,7 +1286,7 @@ const GenerateImagePage: React.FC = () => {
                   AMAZON_ADVANCED_GENERATION_MODE.COLOR_GUIDED_GENERATION &&
                   !colors)
               }>
-              生成
+              생성
             </Button>
 
             <Button
@@ -1296,7 +1296,7 @@ const GenerateImagePage: React.FC = () => {
                 clearAll();
               }}
               disabled={generating || loadingChat}>
-              クリア
+              지우기
             </Button>
           </div>
         </Card>

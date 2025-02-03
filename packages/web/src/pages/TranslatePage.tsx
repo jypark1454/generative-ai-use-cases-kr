@@ -303,10 +303,10 @@ const TranslatePage: React.FC = () => {
   return (
     <div className="grid grid-cols-12">
       <div className="invisible col-span-12 my-0 flex h-0 items-center justify-center text-xl font-semibold lg:visible lg:my-5 lg:h-min print:visible print:my-5 print:h-min">
-        翻訳
+        번역
       </div>
       <div className="col-span-12 col-start-1 mx-2 lg:col-span-10 lg:col-start-2 xl:col-span-10 xl:col-start-2">
-        <Card label="翻訳したい文章">
+        <Card label="번역하고 싶은 문장">
           <div className="flex w-full flex-col justify-between sm:flex-row">
             <Select
               value={modelId}
@@ -316,13 +316,13 @@ const TranslatePage: React.FC = () => {
               })}
             />
             <div className="col-span-12 col-start-1 mx-2 lg:col-span-10 lg:col-start-2 xl:col-span-10 xl:col-start-2">
-              <Switch label="自動翻訳" checked={auto} onSwitch={setAuto} />
+              <Switch label="자동 번역" checked={auto} onSwitch={setAuto} />
             </div>
           </div>
           <div className="flex w-full flex-col lg:flex-row">
             <div className="w-full lg:w-1/2">
               <div className="flex h-12 items-center">
-                言語を自動検出
+                언어 자동 감지
                 <div className="ml-2 justify-end">
                   {audio && (
                     <PiStopCircleBold
@@ -344,16 +344,16 @@ const TranslatePage: React.FC = () => {
               </div>
 
               <Textarea
-                placeholder="入力してください"
+                placeholder="입력해주세요"
                 value={sentence}
                 onChange={setSentence}
                 maxHeight={-1}
                 rows={5}
               />
 
-              <ExpandableField label="追加コンテキスト" optional>
+              <ExpandableField label="추가 컨텍스트" optional>
                 <Textarea
-                  placeholder="追加で考慮してほしい点を入力することができます（カジュアルさ等）"
+                  placeholder="추가로 고려하고 싶은 점을 입력할 수 있습니다 (캐주얼 등)"
                   value={additionalContext}
                   onChange={setAdditionalContext}
                 />
@@ -377,7 +377,7 @@ const TranslatePage: React.FC = () => {
                 )}
                 {!loading && translatedSentence === '' && (
                   <div className="text-gray-500">
-                    翻訳結果がここに表示されます
+                    번역 결과가 여기에 표시됩니다.
                   </div>
                 )}
                 <div className="flex w-full justify-end">
@@ -399,11 +399,11 @@ const TranslatePage: React.FC = () => {
                 )}
 
                 <Button outlined onClick={onClickClear} disabled={disabledExec}>
-                  クリア
+                  지우기
                 </Button>
 
                 <Button disabled={disabledExec} onClick={onClickExec}>
-                  実行
+                  실행
                 </Button>
               </div>
             </div>

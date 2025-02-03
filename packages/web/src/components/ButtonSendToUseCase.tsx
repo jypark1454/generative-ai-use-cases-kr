@@ -56,7 +56,7 @@ const ButtonSendToUseCase: React.FC<Props> = (props) => {
           }}>
           <ModalDialog
             isOpen={showModal}
-            title="ユースケースを選択"
+            title="유스 케이스 선택"
             onClose={() => {
               setShowModal(false);
             }}>
@@ -65,7 +65,7 @@ const ButtonSendToUseCase: React.FC<Props> = (props) => {
                 path="/chat"
                 queryKey="content"
                 text={props.text}
-                title="チャット"
+                title="채팅"
                 onClose={() => {
                   setShowModal(false);
                 }}
@@ -74,7 +74,7 @@ const ButtonSendToUseCase: React.FC<Props> = (props) => {
                 path="/generate"
                 queryKey="information"
                 text={props.text}
-                title="文章生成"
+                title="기사 생성"
                 onClose={() => {
                   setShowModal(false);
                 }}
@@ -83,7 +83,7 @@ const ButtonSendToUseCase: React.FC<Props> = (props) => {
                 path="/summarize"
                 queryKey="sentence"
                 text={props.text}
-                title="要約"
+                title="요약"
                 onClose={() => {
                   setShowModal(false);
                 }}
@@ -92,7 +92,7 @@ const ButtonSendToUseCase: React.FC<Props> = (props) => {
                 path="/editorial"
                 queryKey="sentence"
                 text={props.text}
-                title="校正"
+                title="보정"
                 onClose={() => {
                   setShowModal(false);
                 }}
@@ -101,7 +101,7 @@ const ButtonSendToUseCase: React.FC<Props> = (props) => {
                 path="/translate"
                 queryKey="sentence"
                 text={props.text}
-                title="翻訳"
+                title="번역"
                 onClose={() => {
                   setShowModal(false);
                 }}

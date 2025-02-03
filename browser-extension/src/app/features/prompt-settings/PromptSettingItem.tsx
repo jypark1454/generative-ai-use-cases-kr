@@ -20,7 +20,7 @@ const PromptSettingItem: React.FC<Props> = (props) => {
   return (
     <div className={twMerge('flex flex-col gap-1', props.className)}>
       <div>
-        <div className="text-xs ">プロンプト</div>
+        <div className="text-xs ">프롬프트</div>
         <textarea
           className={twMerge(
             'text-xs text-aws-font-color-gray border p-1 rounded bg-aws-squid-ink w-full resize-none',
@@ -31,7 +31,7 @@ const PromptSettingItem: React.FC<Props> = (props) => {
       </div>
       <div>
         <Checkbox
-          label="フォーム形式で入力する"
+          label="양식 형식으로 입력"
           value={props.prompt.useForm ?? false}
           disabled={props.disabled}
           onChange={(checked) => {
@@ -56,7 +56,7 @@ const PromptSettingItem: React.FC<Props> = (props) => {
             {props.prompt.formDefinitions?.map((def, idx) => (
               <div className="flex gap-1 items-center" key={idx}>
                 <InputText
-                  label="ラベル"
+                  label="라벨"
                   value={def.label}
                   disabled={props.disabled}
                   onChange={(val) => {
@@ -73,7 +73,7 @@ const PromptSettingItem: React.FC<Props> = (props) => {
                   }}
                 />
                 <InputText
-                  label="プロンプトタグ"
+                  label="프롬프트 태그"
                   value={def.tag}
                   disabled={props.disabled}
                   onChange={(val) => {
@@ -90,7 +90,7 @@ const PromptSettingItem: React.FC<Props> = (props) => {
                   }}
                 />
                 <Checkbox
-                  label="選択部分を自動コピー"
+                  label="선택 부분을 자동 복사"
                   value={def.autoCopy}
                   disabled={props.disabled}
                   onChange={(val) => {
@@ -166,7 +166,7 @@ const PromptSettingItem: React.FC<Props> = (props) => {
       </div>
       <div>
         <Checkbox
-          label="一問一答形式にする（会話履歴を無視する）"
+          label="일문일답 형식으로 한다(대화 이력을 무시한다)"
           value={props.prompt.ignoreHistory ?? false}
           disabled={props.disabled}
           onChange={(checked) => {
@@ -181,7 +181,7 @@ const PromptSettingItem: React.FC<Props> = (props) => {
       </div>
       <div>
         <Checkbox
-          label="拡張機能を開いた際にすぐに送信する"
+          label="확장 프로그램을 열 때 즉시 전송"
           value={props.prompt.directSend ?? false}
           disabled={props.disabled}
           onChange={(checked) => {
@@ -196,7 +196,7 @@ const PromptSettingItem: React.FC<Props> = (props) => {
       </div>
       <div>
         <Checkbox
-          label="初期化した状態で拡張機能を開く"
+          label="초기화된 상태에서 확장 기능 열기"
           value={props.prompt.initializeMessages ?? false}
           disabled={props.disabled}
           onChange={(checked) => {

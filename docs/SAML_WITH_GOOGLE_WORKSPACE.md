@@ -51,7 +51,7 @@ ACS の URL
 # フォーマット
 https://<入力した値>.auth.yourRegion.amazoncognito.com/saml2/idpresponse
 
-# 入力例
+# 입력 예시
 https://your-preferred-name-google.auth.ap-northeast-1.amazoncognito.com/saml2/idpresponse
 ```
 
@@ -61,7 +61,7 @@ https://your-preferred-name-google.auth.ap-northeast-1.amazoncognito.com/saml2/i
 # フォーマット
 urn:amazon:cognito:sp:<UserPoolID>
 
-# 入力例
+# 입력 예시
 urn:amazon:cognito:sp:ap-northeast-1_Rxt6J1TtI
 ```
 

@@ -257,16 +257,16 @@ const UseCaseBuilderEditPage: React.FC = () => {
 
   const menu = useMemo(() => {
     const base: string[] = [
-      'アプリ定義',
-      '入力例',
-      'モデル選択',
-      'ファイル添付',
+      '앱 정의',
+      '입력 예시',
+      '모델 선택',
+      '파일 첨부',
     ];
 
     if (isUpdate) {
-      return [...base, '更新', '削除'];
+      return [...base, '수정', '삭제'];
     } else {
-      return [...base, '作成'];
+      return [...base, '만들기'];
     }
   }, [isUpdate]);
 
@@ -274,7 +274,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
 
   // ページタイトルの設定
   useEffect(() => {
-    setPageTitle(isUpdate ? 'ユースケース編集' : 'ユースケース新規作成');
+    setPageTitle(isUpdate ? '유스 케이스 편집' : '유스 케이스 신규 작성');
   }, [isUpdate, setPageTitle]);
 
   useEffect(() => {
@@ -283,24 +283,24 @@ const UseCaseBuilderEditPage: React.FC = () => {
     // eslint-disable-next-line no-irregular-whitespace
     if (title.replace(/[ 　]/g, '') === '') {
       tmp.push({
-        menu: 'アプリ定義',
-        message: 'タイトルを入力してください',
+        menu: '앱 정의',
+        message: '제목을 입력하세요',
       });
     }
 
     // eslint-disable-next-line no-irregular-whitespace
     if (promptTemplate.replace(/[ 　]/g, '') === '') {
       tmp.push({
-        menu: 'アプリ定義',
-        message: 'プロンプトテンプレートを入力してください',
+        menu: '앱 정의',
+        message: '프롬프트 템플릿을 입력하세요.',
       });
     }
 
     if (placeholders.length === 0 && !fileUpload) {
       tmp.push({
-        menu: 'アプリ定義',
+        menu: '앱 정의',
         message:
-          'ユースケースがユーザーの入力を受け付けていません。プロンプトテンプレートに placeholder を追加するか、ファイル添付を ON にしてください。',
+          '사용 사례가 사용자 입력을 수락하지 않습니다. 프롬프트 템플릿에 placeholder를 추가하거나 파일 첨부를 켜십시오.',
       });
     }
 
@@ -318,8 +318,8 @@ const UseCaseBuilderEditPage: React.FC = () => {
 
     if (isDisabledUpdate) {
       tmp.push({
-        menu: 'アプリ定義',
-        message: '更新内容がありません',
+        menu: '앱 정의',
+        message: '업데이트 내용 없음',
       });
     }
 
@@ -429,7 +429,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
         <div className="absolute left-0 top-0">
           <LoadingOverlay>
             {isLoading
-              ? '読み込み中...'
+              ? '로드 중...'
               : isDeleting
                 ? '削除中...'
                 : isUpdate
@@ -442,7 +442,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
       <div className="grid h-screen grid-cols-12 gap-4 p-4">
         <div className="invisible col-span-12 my-0 flex h-0 items-center justify-center lg:visible lg:h-min print:visible print:h-min">
           <div className=" text-xl font-semibold">
-            {isUpdate ? 'ユースケース編集' : 'ユースケース新規作成'}
+            {isUpdate ? '유스 케이스 편집' : '유스 케이스 신규 작성'}
           </div>
         </div>
 
@@ -476,11 +476,11 @@ const UseCaseBuilderEditPage: React.FC = () => {
 
         <div className="col-span-12 lg:col-span-5">
           <Card label={currentMenu} className="relative">
-            {currentMenu === 'アプリ定義' && (
+            {currentMenu === '앱 정의' && (
               <>
                 <RowItem>
                   <InputText
-                    label="タイトル"
+                    label="제목"
                     value={title}
                     onChange={(v) => {
                       setTitle(v);
@@ -492,7 +492,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
 
                 <RowItem>
                   <Textarea
-                    label="概要"
+                    label="개요"
                     rows={1}
                     value={description}
                     onChange={(v) => {
@@ -503,7 +503,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
                 </RowItem>
                 <RowItem>
                   <Textarea
-                    label="プロンプトテンプレート"
+                    label="프롬프트 템플릿"
                     rows={30}
                     maxHeight={500}
                     value={promptTemplate}
@@ -511,15 +511,15 @@ const UseCaseBuilderEditPage: React.FC = () => {
                       setPromptTemplate(v);
                       setIsDisabledUpdate(false);
                     }}
-                    placeholder="プロントテンプレートの書き方については、「ヘルプ」か「サンプル集」をご覧ください。"
-                    hint="ユーザーの入力を受け付けないユースケースは作成できません。プロンプトテンプレートに Placeholder を定義するか、ファイル添付を ON にしてください。"
+                    placeholder="프런트 템플릿 작성 방법은 '도움말' 또는 '샘플집'을 참고하세요."
+                    hint="사용자 입력을 허용하지 않는 사용 사례는 생성할 수 없습니다. 프롬프트 템플릿에 Placeholder를 정의하거나 파일 첨부 기능을 ON으로 설정해야 합니다."
                     required
                   />
                 </RowItem>
               </>
             )}
 
-            {currentMenu === '入力例' && (
+            {currentMenu === '입력 예시' && (
               <div className="mt-2 flex flex-col gap-2">
                 {inputExamples.map((inputExample, idx) => {
                   return (
@@ -527,7 +527,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
                       <div className="flex flex-col">
                         <div className="relative mb-4">
                           <InputText
-                            label="タイトル"
+                            label="제목"
                             value={inputExample.title}
                             onChange={(v) => {
                               setInputExample(idx, {
@@ -591,19 +591,19 @@ const UseCaseBuilderEditPage: React.FC = () => {
                     });
                   }}>
                   <PiPlus className="pr-2 text-xl" />
-                  入力例を追加
+                  입력 예시 추가
                 </Button>
               </div>
             )}
 
-            {currentMenu === 'モデル選択' && (
+            {currentMenu === '모델 선택' && (
               <div className="mt-4 flex flex-col gap-y-2">
                 <Switch
                   checked={fixedModelId !== ''}
                   label={
                     fixedModelId !== ''
-                      ? 'モデルが固定化されています。'
-                      : 'モデルは固定化されていません。'
+                      ? '모델이 고정되어 있습니다.'
+                      : '모델이 고정되어 있지 않습니다.'
                   }
                   onSwitch={() => {
                     if (fixedModelId !== '') {
@@ -631,20 +631,20 @@ const UseCaseBuilderEditPage: React.FC = () => {
                 <div className="text-xs text-gray-800">
                   {fixedModelId !== '' ? (
                     <>
-                      モデル選択の UI が表示されないため、ユーザーは生成 AI
-                      の存在を意識せずにユースケースを利用できます
+                      모델 선택 UI가 표시되지 않기 때문에 사용자는 생성된 AI의 존재를 의식하지 않고
+                      의 존재를 의식하지 않고도 사용 사례를 사용할 수 있습니다.
                     </>
                   ) : (
                     <>
-                      モデル選択の UI
-                      が表示され、ユーザーは自由にモデルを選択できます。
+                      모델 선택 UI
+                      가 표시되며, 사용자는 자유롭게 모델을 선택할 수 있습니다.
                     </>
                   )}
                 </div>
               </div>
             )}
 
-            {currentMenu === 'ファイル添付' && (
+            {currentMenu === '파일 첨부' && (
               <div className="mt-4 flex flex-col gap-y-2">
                 <Switch
                   checked={fileUpload}
@@ -745,7 +745,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
         </div>
         <div className="col-span-12 min-h-[calc(100vh-2rem)] lg:col-span-5 2xl:col-span-6">
           <Card
-            label={`${isPreview ? 'プレビュー' : 'ヘルプ'}`}
+            label={`${isPreview ? '미리보기' : '도움말'}`}
             className="relative">
             <div className="absolute right-3 top-3 flex rounded border text-xs font-bold">
               <div
@@ -754,7 +754,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
                   setIsPreview(true);
                 }}>
                 <PiEye className="mr-1 text-base" />
-                プレビュー
+                미리보기
               </div>
               <div
                 className={`my-1 mr-1 flex cursor-pointer items-center rounded px-4 py-1.5 ${isPreview ? 'text-gray-600' : 'bg-gray-600 text-white'}`}
@@ -762,7 +762,7 @@ const UseCaseBuilderEditPage: React.FC = () => {
                   setIsPreview(false);
                 }}>
                 <PiQuestion className="mr-1 text-base" />
-                ヘルプ
+                도움말
               </div>
             </div>
 

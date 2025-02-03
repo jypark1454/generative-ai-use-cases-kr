@@ -503,7 +503,7 @@ const UseCaseBuilderView: React.FC<Props> = (props) => {
                   ) : (
                     <PiPaperclip />
                   )}
-                  ファイル添付
+                  파일 첨부
                 </div>
               </label>
 
@@ -564,7 +564,7 @@ const UseCaseBuilderView: React.FC<Props> = (props) => {
         <div>
           {props.inputExamples && props.inputExamples.length > 0 && (
             <>
-              <div className="mb-1 text-sm font-bold text-gray-600">入力例</div>
+              <div className="mb-1 text-sm font-bold text-gray-600">입력 예시</div>
               <div className="flex flex-wrap gap-2">
                 {props.inputExamples.map((inputExample, idx) => {
                   return (
@@ -587,11 +587,11 @@ const UseCaseBuilderView: React.FC<Props> = (props) => {
             outlined
             onClick={onClickClear}
             disabled={props.isLoading || loading}>
-            クリア
+            지우기
           </Button>
 
           <Button onClick={onClickExec} disabled={disabledExec}>
-            実行
+            실행
           </Button>
         </div>
       </div>

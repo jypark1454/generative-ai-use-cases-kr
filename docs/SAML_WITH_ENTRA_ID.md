@@ -84,7 +84,7 @@ Identifier (Entity ID)
 # フォーマット
 urn:amazon:cognito:sp:<UserPoolID>
 
-# 入力例
+# 입력 예시
 urn:amazon:cognito:sp:ap-northeast-1_p0oD4M3F0
 ```
 
@@ -96,7 +96,7 @@ Reply URL (Assertion Consumer Service URL)
 # フォーマット
 https://<入力した値>.auth.yourRegion.amazoncognito.com/saml2/idpresponse
 
-# 入力例
+# 입력 예시
 https://your-preferred-name.auth.ap-northeast-1.amazoncognito.com/saml2/idpresponse
 ```
 

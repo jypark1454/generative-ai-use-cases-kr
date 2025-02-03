@@ -18,24 +18,24 @@ const ModalSystemContext: React.FC<Props> = (props) => {
   return (
     <>
       <ModalDialog
-        title="システムプロンプトの作成"
+        title="시스템 프롬프트 만들기"
         isOpen={props.showSystemContextModal}
         onClose={() => {
           props.setShowSystemContextModal(false);
         }}>
-        <div className="py-2.5">タイトル</div>
+        <div className="py-2.5">제목</div>
 
         <Textarea
-          placeholder="入力してください"
+          placeholder="입력해주세요"
           value={props.saveSystemContextTitle}
           onChange={props.setSaveSystemContextTitle}
           maxHeight={-1}
           className="text-aws-font-color"
         />
 
-        <div className="py-2.5">システムプロンプト</div>
+        <div className="py-2.5">시스템 프롬프트</div>
         <Textarea
-          placeholder="入力してください"
+          placeholder="입력해주세요"
           value={props.saveSystemContext}
           onChange={props.setSaveSystemContext}
           maxHeight={500}
@@ -59,7 +59,7 @@ const ModalSystemContext: React.FC<Props> = (props) => {
               props.saveSystemContext === '' ||
               props.saveSystemContextTitle === ''
             }>
-            作成
+            만들기
           </Button>
         </div>
       </ModalDialog>

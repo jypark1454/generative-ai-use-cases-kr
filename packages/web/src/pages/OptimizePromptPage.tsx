@@ -110,7 +110,7 @@ const OptimizePromptPage: React.FC = () => {
   return (
     <div className="grid grid-cols-12">
       <div className="invisible col-span-12 my-0 flex h-0 items-center justify-center text-xl font-semibold lg:visible lg:my-5 lg:h-min print:visible print:my-5 print:h-min">
-        プロンプト最適化
+        프롬프트 최적화
       </div>
       <div className="col-span-12 col-start-1 mx-2 lg:col-span-10 lg:col-start-2 xl:col-span-10 xl:col-start-2">
         <Card>
@@ -124,7 +124,7 @@ const OptimizePromptPage: React.FC = () => {
           <div className="flex w-full flex-col lg:flex-row">
             <div className="w-full lg:w-1/2">
               <Textarea
-                placeholder="現在利用中のプロンプトをそのまま入力してください。英語で出力されてしまう場合は「日本語で出力してください」という指示を追加してください。"
+                placeholder="현재 사용중인 프롬프트를 그대로 입력하십시오. 영어로 출력되어 버리는 경우는 「한국어로 출력해 주세요」라고 하는 지시를 추가해 주세요."
                 value={prompt}
                 onChange={setPrompt}
                 maxHeight={-1}
@@ -138,7 +138,7 @@ const OptimizePromptPage: React.FC = () => {
                   <div className="border-aws-sky size-5 animate-spin rounded-full border-4 border-t-transparent"></div>
                 )}
                 {!loading && optimizedPrompt === '' && (
-                  <div className="text-gray-500">結果がここに表示されます</div>
+                  <div className="text-gray-500">결과가 여기에 표시됩니다.</div>
                 )}
                 <div className="flex w-full justify-end">
                   <ButtonCopy
@@ -149,10 +149,10 @@ const OptimizePromptPage: React.FC = () => {
 
               <div className="mt-3 flex justify-end gap-3">
                 <Button onClick={clear} outlined disabled={disabledExec}>
-                  クリア
+                  지우기
                 </Button>
                 <Button onClick={onClickExec} disabled={disabledExec}>
-                  実行
+                  실행
                 </Button>
               </div>
             </div>

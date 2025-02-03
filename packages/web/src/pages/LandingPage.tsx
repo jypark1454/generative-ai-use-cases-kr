@@ -273,7 +273,7 @@ const LandingPage: React.FC = () => {
 
       <div className="mx-3 mb-6 mt-5 flex flex-col items-center justify-center text-xs lg:flex-row">
         <Button className="mb-2 mr-0 lg:mb-0 lg:mr-2" onClick={() => {}}>
-          試す
+          시작
         </Button>
         를 클릭하면 각 사용 사례를 경험할 수 있습니다.
       </div>
@@ -370,7 +370,7 @@ const LandingPage: React.FC = () => {
       </div>
 
       <h1 className="mb-6 mt-12 flex justify-center text-2xl font-bold">
-        ユースケース連携
+        더 많은 유스 케이스
       </h1>
 
       <div className="mx-20 grid gap-x-20 gap-y-5 md:grid-cols-1 xl:grid-cols-2">

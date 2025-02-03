@@ -588,7 +588,7 @@ const extractOutputImageStabilityAI2024Model = (
       if (response.finish_reasons[0] == 'Filter reason: prompt') {
         throw new Error(
           response.finish_reasons[0] +
-            ': 日本語のプロンプトには対応していません'
+            ': 일본어 프롬프트는 지원하지 않습니다.'
         );
       }
       throw new Error(response.finish_reasons[0]);

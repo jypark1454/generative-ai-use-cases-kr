@@ -55,80 +55,80 @@ const Setting = () => {
   return (
     <div>
       <div className="invisible my-0 flex h-0 items-center justify-center text-xl font-semibold lg:visible lg:my-5 lg:h-min print:visible print:my-5 print:h-min">
-        設定情報
+        설정 정보
       </div>
 
       {hasUpdate && (
         <div className="mt-5 flex w-full justify-center">
           <Alert severity="info" className="flex w-fit items-center">
-            GitHub にアップデートがあります。最新の機能を利用したい場合は
+            GitHub에 업데이트가 있습니다. 최신 기능을 사용하려면
             <Link
               className="text-aws-smile"
-              to="https://github.com/aws-samples/generative-ai-use-cases-jp"
+              to="https://https://github.com/jypark1454/generative-ai-use-cases-kr"
               target="_blank">
               generative-ai-use-cases-jp
             </Link>
-            の main ブランチを pull して再度デプロイしてください。
+            의 main 브랜치를 pull 하고 다시 배포하세요
           </Alert>
         </div>
       )}
 
-      <div className="my-3 flex justify-center font-semibold">全般</div>
+      <div className="my-3 flex justify-center font-semibold">일반</div>
 
       <div className="flex w-full flex-col items-center text-sm">
         <SettingItem
-          name="バージョン"
-          value={localVersion || '取得できませんでした'}
-          helpMessage="generative-ai-use-cases-jp の package.json の version を参照しています"
+          name="버전"
+          value={localVersion || '얻을 수 없습니다.'}
+          helpMessage="generative-ai-use-cases-kr package.json version을 참조합니다."
         />
         <SettingItem
-          name="RAG (Amazon Kendra) 有効"
+          name="RAG (Amazon Kendra) 유효"
           value={ragEnabled.toString()}
         />
         <SettingItem
-          name="RAG (Knowledge Base) 有効"
+          name="RAG (Knowledge Base) 유효"
           value={ragKnowledgeBaseEnabled.toString()}
         />
-        <SettingItem name="Agent 有効" value={agentEnabled.toString()} />
+        <SettingItem name="Agent 유효" value={agentEnabled.toString()} />
       </div>
 
-      <div className="my-3 flex justify-center font-semibold">生成 AI</div>
+      <div className="my-3 flex justify-center font-semibold">생성형 AI</div>
 
       <div className="flex w-full flex-col items-center text-sm">
-        <SettingItem name="LLM モデル名" value={modelIds.join(', ')} />
+        <SettingItem name="LLM 모델명" value={modelIds.join(', ')} />
         <SettingItem
-          name="画像生成 モデル名"
+          name="이미지 생성 모델명"
           value={imageGenModelIds.join(', ')}
         />
-        <SettingItem name="Agent 名" value={agentNames.join(', ')} />
+        <SettingItem name="Agent 이름" value={agentNames.join(', ')} />
         <SettingItem
-          name="LLM & 画像生成 モデルリージョン"
+          name="LLM & 이미지 생성 모델 리전"
           value={modelRegion}
         />
         <div className="mt-5 w-2/3 text-xs lg:w-1/2">
-          設定の変更はこの画面ではなく
+          설정 변경은 이 화면이 아니라
           <Link
             className="text-aws-smile"
-            to="https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/home.html"
+            to="https://docs.aws.amazon.com/ko_kr/cdk/v2/guide/home.html"
             target="_blank">
             AWS CDK
           </Link>
-          で行います。 また、ユースケース実行時にエラーになる場合は、必ず
-          <span className="font-bold">{modelRegion}</span> にて指定したモデル
-          を有効化しているか確認してください。それぞれのやり方については
+          로 합니다. 또한 유스 케이스를 실행할 때 오류가 발생하면 항상
+          <span className="font-bold">{modelRegion}</span> 에서 지정한 모델
+          를 활성화했는지 확인합니다. 각 방법에 대해
           <Link
             className="text-aws-smile"
-            to="https://github.com/aws-samples/generative-ai-use-cases-jp"
+            to="https://github.com/jypark1454/generative-ai-use-cases-kr"
             target="_blank">
-            generative-ai-use-cases-jp
+            generative-ai-use-cases-kr
           </Link>
-          をご参照ください。
+          를 참조하십시오.
         </div>
       </div>
 
       <div className="mb-3 mt-8 flex items-center justify-center font-semibold">
         <PiGithubLogoFill className="mr-2 text-lg" />
-        最近のアップデート
+        최근 업데이트
       </div>
 
       <div className="flex flex-col items-center text-sm">
@@ -151,18 +151,18 @@ const Setting = () => {
 
         <div className="mt-1 flex w-2/3 justify-end text-xs lg:w-1/2">
           <a
-            href="https://github.com/aws-samples/generative-ai-use-cases-jp/pulls?q=is%3Apr+is%3Aclosed"
+            href="https://github.com/jypark1454/generative-ai-use-cases-kr/pulls"
             className="flex items-center hover:underline"
             target="_blank">
             <PiArrowSquareOut className="mr-1 text-base" />
-            全てのアップデートを見る
+            모든 업데이트 보기
           </a>
         </div>
       </div>
 
       <div className="my-10 flex w-full justify-center">
         <Button onClick={onClickSignout} className="text-lg">
-          サインアウト
+          로그아웃
         </Button>
       </div>
     </div>

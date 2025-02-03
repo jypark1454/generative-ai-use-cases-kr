@@ -78,7 +78,7 @@ const Textarea: React.FC<Props> = (props) => {
             </span>
           )}
           {props.required && (
-            <span className="ml-2 text-xs font-bold text-gray-800">* 必須</span>
+            <span className="ml-2 text-xs font-bold text-gray-800">* 필수</span>
           )}
         </div>
       )}
