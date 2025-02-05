@@ -36,7 +36,7 @@
     "modelRegion": "us-east-1",
     "modelIds": [
       "anthropic.claude-3-5-sonnet-20240620-v1:0",
-      "amazon.titan-embed-text-v2:0"
+      "amazon.titan-text-premier-v1:0"
     ],
     "imageGenerationModelIds": [
       "stability.stable-diffusion-xl-v1",
