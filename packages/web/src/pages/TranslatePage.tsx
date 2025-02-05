@@ -34,13 +34,13 @@ import queryString from 'query-string';
 import useSpeach from '../hooks/useSpeach';
 
 const languages = [
-  '英語',
-  '日本語',
-  '中国語',
-  '韓国語',
-  'フランス語',
-  'スペイン語',
-  'ドイツ語',
+  'English',
+  'Japanese',
+  //'中国語',
+  '한국어',
+  //'フランス語',
+  //'スペイン語',
+  //'ドイツ語',
 ];
 
 type StateType = {
@@ -67,7 +67,7 @@ const useTranslatePageState = create<StateType>((set) => {
     setSentence: (s: string) => {
       set(() => ({
         sentence: s,
-      }));
+    }));
     },
     setAdditionalContext: (s: string) => {
       set(() => ({

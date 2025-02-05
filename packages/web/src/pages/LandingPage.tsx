@@ -115,7 +115,7 @@ const LandingPage: React.FC = () => {
       sentence:
         '안녕하세요. 저는 번역을 도와주는 AI 어시스턴트입니다. 원하는 문장을 입력하세요.',
       additionalContext: '',
-      language: '영어',
+      language: 'English',
     };
     navigate(`/translate?${queryString.stringify(params)}`);
   };
