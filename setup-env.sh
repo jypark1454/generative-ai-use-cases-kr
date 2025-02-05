@@ -32,3 +32,5 @@ export VITE_APP_SAML_COGNITO_FEDERATED_IDENTITY_PROVIDER_NAME=`extract_value "$s
 export VITE_APP_AGENT_NAMES=`extract_value "$stack_output" AgentNames`
 export VITE_APP_USE_CASE_BUILDER_ENABLED=`extract_value "$stack_output" UseCaseBuilderEnabled`
 export VITE_APP_OPTIMIZE_PROMPT_FUNCTION_ARN=`extract_value "$stack_output" OptimizePromptFunctionArn`
+# export AWS_PROFILE='user1'
+# export AWS_DEFAULT_REGION='us-east-1'

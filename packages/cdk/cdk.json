@@ -17,16 +17,16 @@
     ]
   },
   "context": {
-    "ragEnabled": false,
+    "ragEnabled": true,
     "kendraIndexArn": null,
     "kendraDataSourceBucketName": null,
     "kendraIndexScheduleEnabled": false,
     "kendraIndexScheduleCreateCron": null,
     "kendraIndexScheduleDeleteCron": null,
-    "ragKnowledgeBaseEnabled": false,
+    "ragKnowledgeBaseEnabled": true,
     "ragKnowledgeBaseStandbyReplicas": false,
     "ragKnowledgeBaseAdvancedParsing": false,
-    "ragKnowledgeBaseAdvancedParsingModelId": "anthropic.claude-3-sonnet-20240229-v1:0",
+    "ragKnowledgeBaseAdvancedParsingModelId": "anthropic.claude-3-5-sonnet-20240620-v1:0",
     "embeddingModelId": "amazon.titan-embed-text-v2:0",
     "selfSignUpEnabled": true,
     "allowedSignUpEmailDomains": null,
@@ -35,10 +35,12 @@
     "samlCognitoFederatedIdentityProviderName": "",
     "modelRegion": "us-east-1",
     "modelIds": [
-      "anthropic.claude-3-sonnet-20240229-v1:0"
+      "anthropic.claude-3-5-sonnet-20240620-v1:0",
+      "amazon.titan-embed-text-v2:0"
     ],
     "imageGenerationModelIds": [
-      "stability.stable-diffusion-xl-v1"
+      "stability.stable-diffusion-xl-v1",
+      "amazon.nova-canvas-v1:0"
     ],
     "endpointNames": [],
     "agentEnabled": false,
