@@ -33,12 +33,12 @@ done
 pushd /tmp
 
 # /tmp に存在するリポジトリを念の為削除
-rm -rf generative-ai-use-cases-jp
+rm -rf generative-ai-use-cases-kr
 
 # GenU を clone
-git clone https://github.com/aws-samples/generative-ai-use-cases-jp
+git clone https://github.com/jypark1454/generative-ai-use-cases-kr
 
-pushd generative-ai-use-cases-jp
+pushd generative-ai-use-cases-kr
 
 # npm パッケージのインストール
 npm ci
