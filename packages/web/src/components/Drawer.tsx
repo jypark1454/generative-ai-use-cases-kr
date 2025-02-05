@@ -152,17 +152,17 @@ const Drawer: React.FC<Props> = (props) => {
           className="mx-3 my-2 text-xs">
           <div className="mb-2 ml-2">
             <RefLink
-              to="https://aws.amazon.com/jp/bedrock/"
+              to="https://aws.amazon.com/ko/bedrock/?nc1=h_ls"
               icon={<BedrockIcon className="w-4 fill-white" />}
               label="Bedrock"
             />
             <RefLink
-              to="https://github.com/aws-samples/generative-ai-use-cases-jp"
+              to="https://github.com/jypark1454/generative-ai-use-cases-kr"
               icon={<PiGithubLogo className="text-base" />}
               label="GitHub"
             />
             <RefLink
-              to="https://docs.anthropic.com/claude/docs"
+              to="https://docs.anthropic.com/ko/docs/welcome"
               icon={<PiBookOpen className="text-base" />}
               label="Claude Prompt Engineering"
             />

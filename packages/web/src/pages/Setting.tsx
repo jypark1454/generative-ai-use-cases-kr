@@ -81,10 +81,10 @@ const Setting = () => {
           value={localVersion || '얻을 수 없습니다.'}
           helpMessage="generative-ai-use-cases-kr package.json version을 참조합니다."
         />
-        <SettingItem
+        // <SettingItem
           name="RAG (Amazon Kendra) 유효"
           value={ragEnabled.toString()}
-        />
+        /> //
         <SettingItem
           name="RAG (Knowledge Base) 유효"
           value={ragKnowledgeBaseEnabled.toString()}
