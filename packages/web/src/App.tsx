@@ -4,19 +4,19 @@ import {
   PiList,
   PiHouse,
   PiChatCircleText,
-  PiPencil,
+  //PiPencil,
   PiNote,
   PiChatsCircle,
   PiPenNib,
   PiMagnifyingGlass,
   PiTranslate,
   PiImages,
-  PiSpeakerHighBold,
+  //PiSpeakerHighBold,
   PiGear,
-  PiGlobe,
+  //PiGlobe,
   PiX,
   PiRobot,
-  PiVideoCamera,
+  //PiVideoCamera,
   PiFlowArrow,
   PiMagicWand,
 } from 'react-icons/pi';
@@ -28,7 +28,7 @@ import useDrawer from './hooks/useDrawer';
 import useChatList from './hooks/useChatList';
 import PopupInterUseCasesDemo from './components/PopupInterUseCasesDemo';
 import useInterUseCases from './hooks/useInterUseCases';
-import { MODELS } from './hooks/useModel';
+//import { MODELS } from './hooks/useModel';
 import useScreen from './hooks/useScreen';
 import { optimizePromptEnabled } from './hooks/useOptimizePrompt';
 
@@ -36,7 +36,7 @@ const ragEnabled: boolean = import.meta.env.VITE_APP_RAG_ENABLED === 'true';
 const ragKnowledgeBaseEnabled: boolean =
   import.meta.env.VITE_APP_RAG_KNOWLEDGE_BASE_ENABLED === 'true';
 const agentEnabled: boolean = import.meta.env.VITE_APP_AGENT_ENABLED === 'true';
-const { visionEnabled } = MODELS;
+//const { visionEnabled } = MODELS;
 const getPromptFlows = () => {
   try {
     return JSON.parse(import.meta.env.VITE_APP_PROMPT_FLOWS);
@@ -100,12 +100,16 @@ const items: ItemProps[] = [
         display: 'usecase' as const,
       }
     : null,
+  
+  /*
   {
     label: '문장 생성',
     to: '/generate',
     icon: <PiPencil />,
     display: 'usecase' as const,
   },
+  */
+ 
   {
     label: '요약',
     to: '/summarize',
@@ -124,18 +128,21 @@ const items: ItemProps[] = [
     icon: <PiTranslate />,
     display: 'usecase' as const,
   },
+  /*
   {
     label: 'Web 콘텐츠 추출',
     to: '/web-content',
     icon: <PiGlobe />,
     display: 'usecase' as const,
   },
+  */
   {
     label: '이미지 생성',
     to: '/image',
     icon: <PiImages />,
     display: 'usecase' as const,
   },
+  /*
   visionEnabled
     ? {
         label: '영상 분석',
@@ -144,12 +151,15 @@ const items: ItemProps[] = [
         display: 'usecase' as const,
       }
     : null,
+  */
+  /*
   {
     label: '음성인식',
     to: '/transcribe',
     icon: <PiSpeakerHighBold />,
     display: 'tool' as const,
   },
+  */
   optimizePromptEnabled
     ? {
         label: '프롬프트 최적화',

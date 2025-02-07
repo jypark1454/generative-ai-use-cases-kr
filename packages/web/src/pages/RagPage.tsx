@@ -101,7 +101,7 @@ const RagPage: React.FC = () => {
             <Alert severity="info">
               <div>
                 RAG (Retrieval Augmented Generation)
-                手法のチャットを行うことができます。
+                방법론에 대한 채팅을 할 수 있습니다.
               </div>
               <div>
                 メッセージが入力されると Amazon Kendra

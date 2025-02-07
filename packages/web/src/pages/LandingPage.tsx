@@ -4,42 +4,42 @@ import CardDemo from '../components/CardDemo';
 import Button from '../components/Button';
 import {
   PiChatCircleText,
-  PiPencil,
+  //PiPencil,
   PiNote,
   PiChatsCircle,
   PiPenNib,
   PiTranslate,
-  PiGlobe,
+  //PiGlobe,
   PiImages,
-  PiNotebook,
-  PiPen,
+  //PiNotebook,
+  //PiPen,
   PiRobot,
-  PiVideoCamera,
+  //PiVideoCamera,
   PiFlowArrow,
 } from 'react-icons/pi';
 import AwsIcon from '../assets/aws.svg?react';
-import useInterUseCases from '../hooks/useInterUseCases';
+//import useInterUseCases from '../hooks/useInterUseCases';
 import {
   AgentPageQueryParams,
   ChatPageQueryParams,
   EditorialPageQueryParams,
   GenerateImagePageQueryParams,
-  GenerateTextPageQueryParams,
-  InterUseCaseParams,
+  //GenerateTextPageQueryParams,
+  //InterUseCaseParams,
   RagPageQueryParams,
   SummarizePageQueryParams,
   TranslatePageQueryParams,
-  WebContentPageQueryParams,
-  VideoAnalyzerPageQueryParams,
+  //WebContentPageQueryParams,
+  //VideoAnalyzerPageQueryParams,
 } from '../@types/navigate';
 import queryString from 'query-string';
-import { MODELS } from '../hooks/useModel';
+//import { MODELS } from '../hooks/useModel';
 
 const ragEnabled: boolean = import.meta.env.VITE_APP_RAG_ENABLED === 'true';
 const ragKnowledgeBaseEnabled: boolean =
   import.meta.env.VITE_APP_RAG_KNOWLEDGE_BASE_ENABLED === 'true';
 const agentEnabled: boolean = import.meta.env.VITE_APP_AGENT_ENABLED === 'true';
-const { visionEnabled } = MODELS;
+//const { visionEnabled } = MODELS;
 const getPromptFlows = () => {
   try {
     return JSON.parse(import.meta.env.VITE_APP_PROMPT_FLOWS);
@@ -52,7 +52,7 @@ const promptFlowChatEnabled: boolean = promptFlows.length > 0;
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
-  const { setIsShow, init } = useInterUseCases();
+  //const { setIsShow, init } = useInterUseCases();
 
   const demoChat = () => {
     const params: ChatPageQueryParams = {
@@ -84,6 +84,7 @@ const LandingPage: React.FC = () => {
     navigate(`/agent?${queryString.stringify(params)}`);
   };
 
+  {/*
   const demoGenerate = () => {
     const params: GenerateTextPageQueryParams = {
       information: `Amazon Bedrock은 AI21 Labs, Anthropic, Cohere, Meta, Stability AI, Amazon 등 주요 AI 기업이 제공하는 고성능 기반 모델(FM)을 단일 API를 통해 선택할 수 있는 풀 매니지드 서비스다. 또한, 생성형 AI 애플리케이션을 구축하는 데 필요한 다양한 기능을 제공하여 프라이버시와 보안을 유지하면서 개발을 간소화할 수 있으며, Amazon Bedrock의 포괄적인 기능을 통해 다양한 상위 FM을 쉽게 시험해 볼 수 있고, 미세 조정 및 검색 확장 생성(RAG) 등의 기법을 사용하여 데이터를 프라이버시를 유지하면서 기술을 사용하여 데이터를 사용하여 개인 맞춤형으로 조정하고, 여행 예약 및 보험 청구 처리에서 광고 캠페인 생성 및 재고 관리까지 복잡한 비즈니스 작업을 수행하는 관리형 에이전트를 만들 수 있다. 아마존 베드락은 서버리스(serverless)이기 때문에 인프라를 관리할 필요가 없고, 익숙한 AWS 서비스를 통해 이 모든 것을 할 수 있다. 또한, 익숙한 AWS 서비스를 사용하여 생성된 AI 기능을 애플리케이션에 안전하게 통합하고 배포할 수 있다.`,
@@ -92,6 +93,7 @@ const LandingPage: React.FC = () => {
     };
     navigate(`/generate?${queryString.stringify(params)}`);
   };
+  */}
 
   const demoSummarize = () => {
     const params: SummarizePageQueryParams = {
@@ -120,6 +122,7 @@ const LandingPage: React.FC = () => {
     navigate(`/translate?${queryString.stringify(params)}`);
   };
 
+  {/*
   const demoWebContent = () => {
     const params: WebContentPageQueryParams = {
       url: 'https://aws.amazon.com/jp/bedrock/',
@@ -127,6 +130,7 @@ const LandingPage: React.FC = () => {
     };
     navigate(`/web-content?${queryString.stringify(params)}`);
   };
+  */}
 
   const demoGenerateImage = () => {
     const params: GenerateImagePageQueryParams = {
@@ -136,6 +140,7 @@ const LandingPage: React.FC = () => {
     navigate(`/image?${queryString.stringify(params)}`);
   };
 
+  {/*
   const demoVideoAnalyzer = () => {
     const params: VideoAnalyzerPageQueryParams = {
       content:
@@ -143,7 +148,9 @@ const LandingPage: React.FC = () => {
     };
     navigate(`/video?${queryString.stringify(params)}`);
   };
+  */}
 
+  {/*
   const demoBlog = () => {
     setIsShow(true);
     init('블로그 글 작성하기', [
@@ -212,7 +219,9 @@ const LandingPage: React.FC = () => {
       },
     ]);
   };
+  */}
 
+  {/*
   const demoMeetingReport = () => {
     setIsShow(true);
     init('회의록 작성', [
@@ -259,6 +268,7 @@ const LandingPage: React.FC = () => {
       },
     ]);
   };
+  */}
 
   const demoPromptFlowChat = () => {
     navigate(`/prompt-flow-chat`);
@@ -323,12 +333,14 @@ const LandingPage: React.FC = () => {
             description="Prompt Flow 를 사용하여 여러 단계의 대화형 채팅 플로우를 만들 수 있습니다. 사용자 입력에 따라 다음 단계를 동적으로 결정하여 보다 복잡한 대화 시나리오를 구현합니다."
           />
         )}
+        {/*
         <CardDemo
           label="문장 생성"
           onClickDemo={demoGenerate}
           icon={<PiPencil />}
           description="문장 생성 모든 컨텍스트에서 문장을 생성하는 것은 LLM이 가장 잘 할 수 있는 작업 중 하나입니다. 기사, 보고서, 이메일 등 모든 컨텍스트에 대응합니다."
         />
+        */}
         <CardDemo
           label="요약"
           onClickDemo={demoSummarize}
@@ -347,18 +359,23 @@ const LandingPage: React.FC = () => {
           icon={<PiTranslate />}
           description="다국어로 학습한 LLM은 번역도 가능합니다. 또한, 단순히 번역만 하는 것이 아니라 캐주얼성, 대상층 등 다양한 지정된 컨텍스트 정보를 번역에 반영할 수 있습니다."
         />
+        
+        {/*
         <CardDemo
           label="Web 콘텐츠 추출"
           onClickDemo={demoWebContent}
           icon={<PiGlobe />}
           description="블로그, 문서 등의 웹 콘텐츠를 추출하고, LLM을 통해 불필요한 정보를 제거한 후 완성된 문장으로 정형화합니다. 추출된 콘텐츠는 요약, 번역 등 다른 사용 사례에 활용할 수 있습니다."
         />
+        */}
+
         <CardDemo
           label="이미지 생성"
           onClickDemo={demoGenerateImage}
           icon={<PiImages />}
           description="이미지 생성 AI는 텍스트나 이미지를 기반으로 새로운 이미지를 생성할 수 있습니다. 아이디어를 즉시 시각화할 수 있어 디자인 작업 등의 효율성을 높일 수 있습니다. 이 기능에서는 LLM이 프롬프트를 생성하는 데 도움을 줄 수 있습니다."
         />
+        {/*
         {visionEnabled && (
           <CardDemo
             label="영상 분석"
@@ -367,8 +384,10 @@ const LandingPage: React.FC = () => {
             description="マルチモーダルモデルによってテキストのみではなく、画像を入力することが可能になりました。こちらの機能では、映像の画像フレームとテキストを入力として LLM に分析を依頼します。"
           />
         )}
+        */}
       </div>
 
+      {/*
       <h1 className="mb-6 mt-12 flex justify-center text-2xl font-bold">
         더 많은 유스 케이스
       </h1>
@@ -387,6 +406,7 @@ const LandingPage: React.FC = () => {
           description="여러 사용 사례를 결합하여 회의 녹음 데이터에서 회의록을 자동으로 생성합니다. 녹취 데이터의 전사, 전사 결과의 정형화, 회의록 작성을 인적 비용 없이 수행할 수 있습니다."
         />
       </div>
+      */}
     </div>
   );
 };

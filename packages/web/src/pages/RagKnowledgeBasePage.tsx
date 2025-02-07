@@ -96,12 +96,10 @@ const RagKnowledgeBasePage: React.FC = () => {
             <Alert severity="info">
               <div>
                 RAG (Retrieval Augmented Generation)
-                手法のチャットを行うことができます。
+                방법론에 대한 채팅을 할 수 있습니다.
               </div>
               <div>
-                メッセージが入力されると Knowledge Base
-                でドキュメントを検索し、検索したドキュメントをもとに LLM
-                が回答を生成します。
+              메시지가 입력되면 Knowledge Base에서 문서를 검색하고, 검색된 문서를 기반으로 LLM이 답변을 생성합니다.
               </div>
             </Alert>
           </div>
