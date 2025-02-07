@@ -369,7 +369,7 @@ const LandingPage: React.FC = () => {
         )}
       </div>
 
-      {/* <h1 className="mb-6 mt-12 flex justify-center text-2xl font-bold">
+      <h1 className="mb-6 mt-12 flex justify-center text-2xl font-bold">
         더 많은 유스 케이스
       </h1>
 
@@ -386,7 +386,7 @@ const LandingPage: React.FC = () => {
           icon={<PiNotebook />}
           description="여러 사용 사례를 결합하여 회의 녹음 데이터에서 회의록을 자동으로 생성합니다. 녹취 데이터의 전사, 전사 결과의 정형화, 회의록 작성을 인적 비용 없이 수행할 수 있습니다."
         />
-      </div> */}
+      </div>
     </div>
   );
 };
