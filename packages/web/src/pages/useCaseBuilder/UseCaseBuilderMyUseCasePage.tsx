@@ -83,7 +83,7 @@ const UseCaseBuilderMyUseCasePage: React.FC = () => {
                 navigate(`${ROUTE_INDEX_USE_CASE_BUILDER}/new`);
               }}>
               <PiNotePencil className="mr-2" />
-              新規作成
+              신규 작성
             </Button>
           </div>
         </div>

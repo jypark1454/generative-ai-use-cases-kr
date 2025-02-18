@@ -39,7 +39,7 @@ const UseCaseBuilderRoot: React.FC = () => {
           display: 'usecase' as const,
         },
         {
-          label: '新規作成',
+          label: '신규 작성',
           to: `${ROUTE_INDEX_USE_CASE_BUILDER}/new`,
           icon: <PiNotePencil />,
           display: 'usecase' as const,
