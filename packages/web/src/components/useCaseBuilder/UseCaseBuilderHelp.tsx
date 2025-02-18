@@ -158,7 +158,7 @@ const UseCaseBuilderHelp = () => {
                 target="_blank">
                 ResultItems を JSON にした文字列
               </a>{' '}
-              です。 この機能を利用するためには、GenU で RAG チャット (Amazon
+              です。 この機能を利用するためには、GenU で RAG 채팅 (Amazon
               Kendra) が有効になっている必要があります。有効化の方法は{' '}
               <a
                 className="text-aws-smile"

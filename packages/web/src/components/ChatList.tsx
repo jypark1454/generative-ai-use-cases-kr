@@ -37,7 +37,7 @@ const ChatList: React.FC<Props> = (props) => {
       return chats;
     }
 
-    // OR 検索にしています
+    // OR 검색 중입니다
     return chats.filter((c) => {
       return props.searchWords.some((w) =>
         c.title.toLowerCase().includes(w.toLowerCase())
@@ -72,7 +72,7 @@ const ChatList: React.FC<Props> = (props) => {
               onClick={() => {
                 loadMore();
               }}>
-              さらに読み込む
+              더 보기
             </button>
           </div>
         )}

@@ -77,7 +77,7 @@ const AuthWithSAML: React.FC<Props> = (props) => {
             variation="primary"
             onClick={() => signIn()}
             className="mt-6 w-60">
-            ログイン
+            로그인
           </Button>
         </div>
       ) : (

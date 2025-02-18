@@ -2,36 +2,38 @@ import React, {
   useCallback,
   useEffect,
   useMemo,
-  useState,
-  useRef,
+  //useState,
+  //useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import Card from '../components/Card';
 import Button from '../components/Button';
-import ButtonIcon from '../components/ButtonIcon';
+//import ButtonIcon from '../components/ButtonIcon';
 import Textarea from '../components/Textarea';
 import ExpandableField from '../components/ExpandableField';
 import Select from '../components/Select';
 import Markdown from '../components/Markdown';
-import ButtonCopy from '../components/ButtonCopy';
+//import ButtonCopy from '../components/ButtonCopy';
 import Switch from '../components/Switch';
 import useChat from '../hooks/useChat';
 import useMicrophone from '../hooks/useMicrophone';
 import useTyping from '../hooks/useTyping';
 import useLocalStorageBoolean from '../hooks/useLocalStorageBoolean';
+{/*
 import {
   PiMicrophoneBold,
   PiStopCircleBold,
   PiSpeakerSimpleHigh,
   PiSpeakerSimpleHighFill,
 } from 'react-icons/pi';
+*/}
 import { create } from 'zustand';
 import debounce from 'lodash.debounce';
 import { TranslatePageQueryParams } from '../@types/navigate';
 import { MODELS } from '../hooks/useModel';
 import { getPrompter } from '../prompts';
 import queryString from 'query-string';
-import useSpeach from '../hooks/useSpeach';
+//import useSpeach from '../hooks/useSpeach';
 
 const languages = [
   'English',
@@ -103,10 +105,10 @@ const TranslatePage: React.FC = () => {
     clear,
   } = useTranslatePageState();
   const {
-    startTranscription,
-    stopTranscription,
+    //startTranscription,
+    //stopTranscription,
     transcriptMic,
-    recording,
+    //recording,
     clearTranscripts,
   } = useMicrophone();
 
@@ -130,8 +132,8 @@ const TranslatePage: React.FC = () => {
   }, [modelId]);
   const stopReason = getStopReason();
   const [auto, setAuto] = useLocalStorageBoolean('Auto_Translate', true);
-  const [audio, setAudioInput] = useState(false); // 音声入力フラグ
-  const { synthesizeSpeach, loading: speachIsLoading } = useSpeach(language);
+  //const [audio, setAudioInput] = useState(false); // 音声入力フラグ
+  //const { synthesizeSpeach, loading: speachIsLoading } = useSpeach(language);
 
   useEffect(() => {
     updateSystemContextByModel();
@@ -215,12 +217,13 @@ const TranslatePage: React.FC = () => {
   }, [messages]);
 
   // 録音機能がエラー終了した時にトグルスイッチをOFFにする
+  {/*
   useEffect(() => {
     if (!recording) {
       setAudioInput(false);
     }
   }, [recording]);
-
+  */}
   // transcribeの要素が追加された時の処理. 左のボックスに自動入力する
   useEffect(() => {
     const combinedTranscript = transcriptMic
@@ -262,13 +265,15 @@ const TranslatePage: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isSpeachPlaying, setIsSpeachPlaying] = useState(false);
+  //const audioRef = useRef<HTMLAudioElement | null>(null);
+  //const [isSpeachPlaying, setIsSpeachPlaying] = useState(false);
 
+  {/*
   const handleSpeachEnded = useCallback(() => {
     setIsSpeachPlaying(false);
   }, [setIsSpeachPlaying]);
 
+  
   const startOrStopSpeach = useCallback(async () => {
     if (speachIsLoading) return;
 
@@ -281,7 +286,7 @@ const TranslatePage: React.FC = () => {
       audioRef.current = null;
       return;
     }
-
+    
     setIsSpeachPlaying(true);
 
     const speachUrl = await synthesizeSpeach(translatedSentence);
@@ -299,6 +304,7 @@ const TranslatePage: React.FC = () => {
     handleSpeachEnded,
     speachIsLoading,
   ]);
+  */}
 
   return (
     <div className="grid grid-cols-12">
@@ -321,6 +327,7 @@ const TranslatePage: React.FC = () => {
           </div>
           <div className="flex w-full flex-col lg:flex-row">
             <div className="w-full lg:w-1/2">
+              {/*
               <div className="flex h-12 items-center">
                 언어 자동 감지
                 <div className="ml-2 justify-end">
@@ -342,6 +349,7 @@ const TranslatePage: React.FC = () => {
                   )}
                 </div>
               </div>
+              */}
 
               <Textarea
                 placeholder="입력해주세요"
@@ -380,6 +388,7 @@ const TranslatePage: React.FC = () => {
                     번역 결과가 여기에 표시됩니다.
                   </div>
                 )}
+                {/*
                 <div className="flex w-full justify-end">
                   <ButtonIcon onClick={startOrStopSpeach}>
                     {isSpeachPlaying ? (
@@ -392,6 +401,7 @@ const TranslatePage: React.FC = () => {
                     text={translatedSentence}
                     interUseCasesKey="translatedSentence"></ButtonCopy>
                 </div>
+                */}
               </div>
               <div className="mt-3 flex justify-end gap-3">
                 {stopReason === 'max_tokens' && (

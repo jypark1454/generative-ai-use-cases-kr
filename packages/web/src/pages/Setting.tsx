@@ -4,16 +4,16 @@ import Help from '../components/Help';
 import Alert from '../components/Alert';
 import Button from '../components/Button';
 import { MODELS } from '../hooks/useModel';
-import useGitHub, { PullRequest } from '../hooks/useGitHub';
-import { PiGithubLogoFill, PiArrowSquareOut } from 'react-icons/pi';
+//import useGitHub, { PullRequest } from '../hooks/useGitHub';
+//import { PiGithubLogoFill, PiArrowSquareOut } from 'react-icons/pi';
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import { useCallback } from 'react';
 import { useSWRConfig } from 'swr';
 
-const ragEnabled: boolean = import.meta.env.VITE_APP_RAG_ENABLED === 'true';
+//const ragEnabled: boolean = import.meta.env.VITE_APP_RAG_ENABLED === 'true';
 const ragKnowledgeBaseEnabled: boolean =
   import.meta.env.VITE_APP_RAG_KNOWLEDGE_BASE_ENABLED === 'true';
-const agentEnabled: boolean = import.meta.env.VITE_APP_AGENT_ENABLED === 'true';
+//const agentEnabled: boolean = import.meta.env.VITE_APP_AGENT_ENABLED === 'true';
 
 const SettingItem = (props: {
   name: string;
@@ -34,15 +34,16 @@ const SettingItem = (props: {
 };
 
 const Setting = () => {
-  const { modelRegion, modelIds, imageGenModelIds, agentNames } = MODELS;
+  // 원래거 const { modelRegion, modelIds, imageGenModelIds, agentNames } = MODELS;
+  const { modelRegion, modelIds, imageGenModelIds } = MODELS;
   const { cache } = useSWRConfig();
   const { getLocalVersion, getHasUpdate } = useVersion();
-  const { getClosedPullRequests } = useGitHub();
+  //const { getClosedPullRequests } = useGitHub();
   const { signOut } = useAuthenticator();
 
   const localVersion = getLocalVersion();
   const hasUpdate = getHasUpdate();
-  const closedPullRequests = getClosedPullRequests();
+  //const closedPullRequests = getClosedPullRequests();
 
   const onClickSignout = useCallback(() => {
     // SWRのキャッシュを全て削除する
@@ -81,15 +82,17 @@ const Setting = () => {
           value={localVersion || '얻을 수 없습니다.'}
           helpMessage="generative-ai-use-cases-kr package.json version을 참조합니다."
         />
-        // <SettingItem
+        {/* <SettingItem
           name="RAG (Amazon Kendra) 유효"
           value={ragEnabled.toString()}
-        /> //
+        /> */}
         <SettingItem
           name="RAG (Knowledge Base) 유효"
           value={ragKnowledgeBaseEnabled.toString()}
         />
+        {/*
         <SettingItem name="Agent 유효" value={agentEnabled.toString()} />
+        */}
       </div>
 
       <div className="my-3 flex justify-center font-semibold">생성형 AI</div>
@@ -100,7 +103,9 @@ const Setting = () => {
           name="이미지 생성 모델명"
           value={imageGenModelIds.join(', ')}
         />
+        {/* 
         <SettingItem name="Agent 이름" value={agentNames.join(', ')} />
+        */}
         <SettingItem
           name="LLM & 이미지 생성 모델 리전"
           value={modelRegion}
@@ -126,6 +131,7 @@ const Setting = () => {
         </div>
       </div>
 
+      {/*}
       <div className="mb-3 mt-8 flex items-center justify-center font-semibold">
         <PiGithubLogoFill className="mr-2 text-lg" />
         최근 업데이트
@@ -159,6 +165,7 @@ const Setting = () => {
           </a>
         </div>
       </div>
+      */}
 
       <div className="my-10 flex w-full justify-center">
         <Button onClick={onClickSignout} className="text-lg">

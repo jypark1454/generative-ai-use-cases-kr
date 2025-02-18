@@ -22,8 +22,8 @@ const Settings: React.FC<Props> = (props) => {
     <div className="p-2">
       <div className="text-base font-semibold mb-1">設定</div>
       <div className="font-light text-aws-font-color-gray text-xs">
-        <div>拡張機能を利用するための設定を行います。</div>
-        <div>この拡張機能を利用するためには、generative-ai-use-cases-jp のデプロイが必要です。</div>
+        <div>확장 기능을 사용하기 위한 설정을 합니다.</div>
+        <div>이 확장 기능을 이용하기 위해서는 generative-ai-use-cases-kr을 배포해야 합니다.</div>
       </div>
 
       <div className="flex flex-col mt-3 gap-2">
@@ -101,10 +101,10 @@ const Settings: React.FC<Props> = (props) => {
       </div>
       <div className="flex justify-between">
         <Button className="mt-3" outlined icon={<PiCaretLeft />} onClick={props.onBack}>
-          戻る
+          돌아가기
         </Button>
         <Button className="mt-3" onClick={save}>
-          設定保存
+          설정 저장
         </Button>
       </div>
 
@@ -113,7 +113,7 @@ const Settings: React.FC<Props> = (props) => {
         <div className="text-aws-font-color-gray">
           {hasAuthenticated ? (
             <div>
-              <div>ログイン者：{email}</div>
+              <div>로그인:{email}</div>
               <div className="flex justify-end">
                 <Button
                   outlined
@@ -121,12 +121,12 @@ const Settings: React.FC<Props> = (props) => {
                     signOut();
                   }}
                 >
-                  ログアウト
+                  로그아웃
                 </Button>
               </div>
             </div>
           ) : (
-            <div>ログインしていません。</div>
+            <div>로그인하지 않았습니다.</div>
           )}
         </div>
       </div>

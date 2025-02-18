@@ -28,7 +28,7 @@
     "ragKnowledgeBaseAdvancedParsing": false,
     "ragKnowledgeBaseAdvancedParsingModelId": "anthropic.claude-3-5-sonnet-20240620-v1:0",
     "embeddingModelId": "amazon.titan-embed-text-v2:0",
-    "selfSignUpEnabled": false,
+    "selfSignUpEnabled": true,
     "allowedSignUpEmailDomains": null,
     "samlAuthEnabled": false,
     "samlCognitoDomainName": "",
