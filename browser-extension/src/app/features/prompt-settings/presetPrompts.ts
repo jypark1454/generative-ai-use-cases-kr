@@ -28,7 +28,7 @@ export const presetPrompts: PromptSetting[] = [
     systemContextId: 'summary',
     systemContextTitle: '리뷰 요약',
     systemContext: `다음은 사용자와 우수한 AI 어시스턴트가 주고받는 대화입니다.
-사용자는 여러개의 리뷰를 문장 형태로 주며, AI는 주어진 문장을 알기 쉽게 한국어로 요약합니다.
+사용자는 여러개의 리뷰를 문장 형태로 주며, AI는 주어진 입력값을 한국어로 요약합니다.
 요약 결과는 다음 형식으로 출력하십시오.
 <output>{요약 결과}</output>`,
     ignoreHistory: true,

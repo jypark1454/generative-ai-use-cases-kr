@@ -13,7 +13,7 @@ import Textarea from '../components/Textarea';
 import ExpandableField from '../components/ExpandableField';
 import Select from '../components/Select';
 import Markdown from '../components/Markdown';
-//import ButtonCopy from '../components/ButtonCopy';
+import ButtonCopy from '../components/ButtonCopy';
 import Switch from '../components/Switch';
 import useChat from '../hooks/useChat';
 import useMicrophone from '../hooks/useMicrophone';
@@ -361,7 +361,7 @@ const TranslatePage: React.FC = () => {
 
               <ExpandableField label="추가 컨텍스트" optional>
                 <Textarea
-                  placeholder="추가로 고려하고 싶은 점을 입력할 수 있습니다."
+                  placeholder="추가로 고려하고 싶은 점을 입력할 수 있습니다.(예시: 업계 용어, 읽는 대상 등)"
                   value={additionalContext}
                   onChange={setAdditionalContext}
                 />
@@ -388,8 +388,9 @@ const TranslatePage: React.FC = () => {
                     번역 결과가 여기에 표시됩니다.
                   </div>
                 )}
-                {/*
+          
                 <div className="flex w-full justify-end">
+                {/*
                   <ButtonIcon onClick={startOrStopSpeach}>
                     {isSpeachPlaying ? (
                       <PiSpeakerSimpleHighFill />
@@ -397,11 +398,13 @@ const TranslatePage: React.FC = () => {
                       <PiSpeakerSimpleHigh />
                     )}
                   </ButtonIcon>
+                */}
                   <ButtonCopy
                     text={translatedSentence}
-                    interUseCasesKey="translatedSentence"></ButtonCopy>
+                    interUseCasesKey="translatedSentence">
+                  </ButtonCopy>
                 </div>
-                */}
+                
               </div>
               <div className="mt-3 flex justify-end gap-3">
                 {stopReason === 'max_tokens' && (

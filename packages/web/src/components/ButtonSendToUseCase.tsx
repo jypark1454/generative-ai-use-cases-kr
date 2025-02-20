@@ -92,7 +92,7 @@ const ButtonSendToUseCase: React.FC<Props> = (props) => {
                 path="/editorial"
                 queryKey="sentence"
                 text={props.text}
-                title="보정"
+                title="교정"
                 onClose={() => {
                   setShowModal(false);
                 }}
