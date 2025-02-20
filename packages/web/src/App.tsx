@@ -13,7 +13,7 @@ import {
   PiImages,
   //PiSpeakerHighBold,
   PiGear,
-  //PiGlobe,
+  PiGlobe,
   PiX,
   PiRobot,
   //PiVideoCamera,
@@ -109,9 +109,15 @@ const items: ItemProps[] = [
     display: 'usecase' as const,
   },
   */
- 
   {
-    label: '요약',
+    label: '리뷰 추출',
+    to: '/web-content',
+    icon: <PiGlobe />,
+    display: 'usecase' as const,
+  },
+
+  {
+    label: '리뷰 요약',
     to: '/summarize',
     icon: <PiNote />,
     display: 'usecase' as const,
@@ -128,14 +134,6 @@ const items: ItemProps[] = [
     icon: <PiTranslate />,
     display: 'usecase' as const,
   },
-  /*
-  {
-    label: 'Web 콘텐츠 추출',
-    to: '/web-content',
-    icon: <PiGlobe />,
-    display: 'usecase' as const,
-  },
-  */
   {
     label: '이미지 생성',
     to: '/image',

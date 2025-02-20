@@ -9,7 +9,7 @@ import {
   PiChatsCircle,
   PiPenNib,
   PiTranslate,
-  //PiGlobe,
+  PiGlobe,
   PiImages,
   //PiNotebook,
   //PiPen,
@@ -29,7 +29,7 @@ import {
   RagPageQueryParams,
   SummarizePageQueryParams,
   TranslatePageQueryParams,
-  //WebContentPageQueryParams,
+  WebContentPageQueryParams,
   //VideoAnalyzerPageQueryParams,
 } from '../@types/navigate';
 import queryString from 'query-string';
@@ -122,15 +122,13 @@ const LandingPage: React.FC = () => {
     navigate(`/translate?${queryString.stringify(params)}`);
   };
 
-  {/*
   const demoWebContent = () => {
     const params: WebContentPageQueryParams = {
-      url: 'https://aws.amazon.com/jp/bedrock/',
+      url: '',
       context: '',
     };
     navigate(`/web-content?${queryString.stringify(params)}`);
   };
-  */}
 
   const demoGenerateImage = () => {
     const params: GenerateImagePageQueryParams = {
@@ -297,7 +295,7 @@ const LandingPage: React.FC = () => {
           label="채팅"
           onClickDemo={demoChat}
           icon={<PiChatsCircle />}
-          description="LLM과 채팅 형식으로 대화할 수 있습니다. 세세한 사용 사례나 새로운 사용 사례에 빠르게 대응할 수 있습니다. 프롬프트 엔지니어링의 검증용 환경으로도 효과적입니다."
+          description="LLM과 채팅 형식으로 대화할 수 있습니다. RAG 채팅 결과와 비교해보거나, 프롬프트 엔지니어링의 검증용 환경으로도 사용할 수도 있습니다."
         />
         {ragEnabled && (
           <CardDemo
@@ -314,7 +312,7 @@ const LandingPage: React.FC = () => {
             sub="Knowledge Base"
             onClickDemo={demoRagKnowledgeBase}
             icon={<PiChatCircleText />}
-            description="RAG (Retrieval Augmented Generation) 는 정보 검색과 LLM의 문장 생성을 결합하여 효과적인 정보 접근을 실현할 수 있는 방법으로, Knowledge Base의 Hybrid Search를 활용하여 참고 문서를 검색하고 LLM이 답변을 생성하는 방식입니다."
+            description="RAG (Retrieval Augmented Generation) 는 정보 검색과 LLM의 문장 생성을 결합하여 보다 실제적인 정보를 제공하는 방법입니다. 이 기능은 Knowledge Base의 Hybrid Search를 활용하여 참고 문서를 검색하고 LLM이 답변을 생성합니다."
           />
         )}
         {agentEnabled && (
@@ -342,7 +340,13 @@ const LandingPage: React.FC = () => {
         />
         */}
         <CardDemo
-          label="요약"
+          label="리뷰 추출"
+          onClickDemo={demoWebContent}
+          icon={<PiGlobe />}
+          description="URL을 입력하면 웹 콘텐츠에서 고객 리뷰를 추출하고, LLM을 통해 불필요한 정보를 제거한 후 완성된 문장으로 정형화하여 보여줍니다. 추출된 콘텐츠는 요약, 번역 등 다른 사용 사례에 활용할 수 있습니다."
+        />
+        <CardDemo
+          label="리뷰 요약"
           onClickDemo={demoSummarize}
           icon={<PiNote />}
           description="LLM은 방대한 양의 글을 요약하는 작업에 능숙합니다. 요약할 때 '한 줄로', '어린이도 이해할 수 있는 언어로' 등 문맥을 부여할 수 있습니다."
@@ -351,29 +355,19 @@ const LandingPage: React.FC = () => {
           label="교정"
           onClickDemo={demoEditorial}
           icon={<PiPenNib />}
-          description="LLM은 오탈자 체크뿐만 아니라 글의 흐름과 내용을 고려하여 보다 객관적인 관점에서 개선점을 제안할 수 있습니다. 남에게 보여주기 전에 LLM에게 자신이 미처 발견하지 못한 부분을 객관적으로 점검받음으로써 퀄리티를 높이는 효과를 기대할 수 있습니다."
+          description="LLM은 오탈자 체크뿐만 아니라 글의 흐름과 내용을 고려하여 보다 객관적인 관점에서 개선점을 제안할 수 있습니다. Public에 공개되기 전에 LLM에게 미처 발견하지 못한 부분을 객관적으로 점검받음으로써 문장의 퀄리티를 높이는 효과를 기대할 수 있습니다."
         />
         <CardDemo
           label="번역"
           onClickDemo={demoTranslate}
           icon={<PiTranslate />}
-          description="다국어로 학습한 LLM은 번역도 가능합니다. 또한, 단순히 번역만 하는 것이 아니라 캐주얼성, 대상층 등 다양한 지정된 컨텍스트 정보를 번역에 반영할 수 있습니다."
+          description="다국어로 학습한 LLM은 번역도 가능합니다. 단순히 번역만 하는 것이 아니라 업계 용어, 읽는 대상 등 다양한 지정된 컨텍스트 정보를 번역에 반영할 수 있습니다."
         />
-        
-        {/*
-        <CardDemo
-          label="Web 콘텐츠 추출"
-          onClickDemo={demoWebContent}
-          icon={<PiGlobe />}
-          description="블로그, 문서 등의 웹 콘텐츠를 추출하고, LLM을 통해 불필요한 정보를 제거한 후 완성된 문장으로 정형화합니다. 추출된 콘텐츠는 요약, 번역 등 다른 사용 사례에 활용할 수 있습니다."
-        />
-        */}
-
         <CardDemo
           label="이미지 생성"
           onClickDemo={demoGenerateImage}
           icon={<PiImages />}
-          description="이미지 생성 AI는 텍스트나 이미지를 기반으로 새로운 이미지를 생성할 수 있습니다. 아이디어를 즉시 시각화할 수 있어 디자인 작업 등의 효율성을 높일 수 있습니다. 이 기능에서는 LLM이 프롬프트를 생성하는 데 도움을 줄 수 있습니다."
+          description="이미지 생성 AI는 텍스트나 이미지를 기반으로 새로운 이미지를 생성할 수 있습니다. 아이디어를 즉시 시각화할 수 있어 디자인 작업 등의 효율성을 높일 수 있습니다. 이 기능에서는 LLM이 적절한 프롬프트를 생성하는 데 도움을 줍니다."
         />
         {/*
         {visionEnabled && (

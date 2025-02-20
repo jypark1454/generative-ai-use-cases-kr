@@ -205,7 +205,7 @@ const WebContent: React.FC = () => {
   return (
     <div className="grid grid-cols-12">
       <div className="invisible col-span-12 my-0 flex h-0 items-center justify-center text-xl font-semibold lg:visible lg:my-5 lg:h-min print:visible print:my-5 print:h-min">
-        웹 콘텐츠 추출
+        리뷰 추출
       </div>
 
       <div className="col-span-12 col-start-1 mx-2 lg:col-span-10 lg:col-start-2 xl:col-span-10 xl:col-start-2">
@@ -224,7 +224,7 @@ const WebContent: React.FC = () => {
           </Alert>
         )}
 
-        <Card label="콘텐츠를 추출하려는 웹 사이트">
+        <Card label="리뷰를 추출하려는 웹 사이트">
           <div className="mb-2 flex w-full">
             <Select
               value={modelId}
@@ -236,8 +236,7 @@ const WebContent: React.FC = () => {
           </div>
 
           <div className="text-xs text-black/50">
-            블로그, 기사, 문서 등 텍스트가 메인 콘텐츠인 웹
-            사이트를 지정합니다. 그렇지 않으면 정상적으로 출력되지 않을 수 있습니다.
+            텍스트가 메인 콘텐츠인 웹 사이트를 입력하세요. 그렇지 않으면 정상적으로 출력되지 않을 수 있습니다.
           </div>
 
           <RowItem>
@@ -276,7 +275,7 @@ const WebContent: React.FC = () => {
             <Markdown>{typingTextOutput}</Markdown>
             {!loading && !fetching && content === '' && (
               <div className="text-gray-500">
-                추출된 문장이 여기에 표시됩니다.
+                추출된 결과가 여기에 표시됩니다.
               </div>
             )}
             {(loading || fetching) && (
@@ -290,14 +289,14 @@ const WebContent: React.FC = () => {
           </div>
 
           <ExpandableField
-            label={`추출 전 텍스트 (${
+            label={`텍스트 원문 (${
               fetching ? '로드 중...' : text === '' ? '얻지 못함' : '얻음'
             })`}
             className="mt-2">
             <div className="rounded border border-black/30 p-1.5">
               {text === '' && (
                 <div className="text-gray-500">
-                  얻지 못했습니다. URL을 입력하고 실행 버튼을 누릅니다.
+                  결과를 얻지 못했습니다. URL을 입력하고 실행 버튼을 누릅니다.
                 </div>
               )}
               {text}

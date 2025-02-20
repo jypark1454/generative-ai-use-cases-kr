@@ -298,7 +298,7 @@ const useGenerateImagePageState = create<StateType>((set, get) => {
     },
     maskPrompt: '',
     colors: colorsOptions[0].value,
-    imageSample: 3,
+    imageSample: 2,
     image: new Array(MAX_SAMPLE).fill({
       base64: '',
       error: false,
@@ -1010,7 +1010,7 @@ const GenerateImagePage: React.FC = () => {
                   onChange={(n) => {
                     setSeed(n, selectedImageIndex);
                   }}
-                  help="난수의 시드 값입니다. 동일한 시드 값을 지정하면 동일한 이미지가 생성됩니다."
+                  help="시드는 초기 노이즈 설정을 결정합니다. 추론을 통해 비슷한 이미지를 만들 수 있도록 하려면 이전 실행과 동일한 시드 및 동일한 설정을 사용합니다. 이 값을 설정하지 않거나 값이 0이면 난수로 설정됩니다."
                 />
                 <ButtonIcon
                   className="absolute -top-0.5 right-[8.2rem]"
@@ -1230,7 +1230,7 @@ const GenerateImagePage: React.FC = () => {
                     max={50}
                     value={step}
                     onChange={setStep}
-                    help="이미지 생성의 반복 횟수입니다. Step 수가 많을수록 이미지가 세련되지만 생성에 시간이 걸립니다."
+                    help="이미지를 샘플링 하는 횟수입니다. Step 수가 많을수록 이미지가 세련되지만 생성하는 데에 시간이 오래 걸립니다."
                   />
 
                   {generationMode === GENERATION_MODES.IMAGE_VARIATION && (

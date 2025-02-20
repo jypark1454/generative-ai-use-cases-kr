@@ -361,7 +361,7 @@ const TranslatePage: React.FC = () => {
 
               <ExpandableField label="추가 컨텍스트" optional>
                 <Textarea
-                  placeholder="추가로 고려하고 싶은 점을 입력할 수 있습니다 (캐주얼 등)"
+                  placeholder="추가로 고려하고 싶은 점을 입력할 수 있습니다."
                   value={additionalContext}
                   onChange={setAdditionalContext}
                 />

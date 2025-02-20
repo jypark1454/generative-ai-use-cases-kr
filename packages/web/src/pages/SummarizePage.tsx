@@ -151,7 +151,7 @@ const SummarizePage: React.FC = () => {
         요약
       </div>
       <div className="col-span-12 col-start-1 mx-2 lg:col-span-10 lg:col-start-2 xl:col-span-10 xl:col-start-2">
-        <Card label="요약하고 싶은 문장">
+        <Card label="요약하고 싶은 리뷰">
           <div className="mb-2 flex w-full">
             <Select
               value={modelId}
@@ -171,7 +171,7 @@ const SummarizePage: React.FC = () => {
 
           <ExpandableField label="추가 컨텍스트" optional>
             <Textarea
-              placeholder="추가로 고려하고 싶은 점을 입력할 수 있습니다 (캐주얼 등)"
+              placeholder="추가로 고려하고 싶은 점을 입력할 수 있습니다"
               value={additionalContext}
               onChange={setAdditionalContext}
             />
