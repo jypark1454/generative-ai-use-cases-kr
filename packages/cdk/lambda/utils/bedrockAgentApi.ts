@@ -165,7 +165,7 @@ const bedrockAgentApi: Pick<ApiInterface, 'invokeStream'> = {
               if (sources[url] === undefined) {
                 sources[url] = Object.keys(sources).length;
                 body += `\n[^${sources[url]}]: [${fileName}${
-                  pageNumber ? `(${pageNumber} ページ)` : ''
+                  pageNumber ? `(${pageNumber} Page)` : ''
                 }](${url.replace(fileName, encodedFileName)}${pageNumber ? `#page=${pageNumber}` : ''})`;
               }
               const referenceId = sources[url];
@@ -322,7 +322,7 @@ const bedrockAgentApi: Pick<ApiInterface, 'invokeStream'> = {
                         ];
 
                       return `- [${fileName}${
-                        pageNumber ? `(${pageNumber} ページ)` : ''
+                        pageNumber ? `(${pageNumber} Page)` : ''
                       }](${url.replace(fileName, encodedFileName)}${pageNumber ? `#page=${pageNumber}` : ''})`;
                     }
                     return [];

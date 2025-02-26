@@ -14,7 +14,7 @@ import { PromptSetting } from '../../../@types/settings';
 import { StreamingChunk } from '../../../@types/backend-api';
 
 const useChat = () => {
-  // 複数のタブで起動する場合があるので、タブごとに状態を管理する
+  // 여러 탭에서 시작될 수 있으므로 각 탭의 상태를 관리합니다.
   const [tabId, setTabId] = useState<number>(-1);
   Browser.tabs?.getCurrent().then((tab) => {
     if (tab) {
@@ -39,7 +39,7 @@ const useChat = () => {
     isEmptyMessages,
     sendMessage: async (promptSetting: PromptSetting, content: string, isReplace?: boolean) => {
       if (tabId === -1) {
-        throw new Error('Tab IDが取得できませんでした');
+        throw new Error('Tab ID를 얻을 수 없습니다.');
       }
 
       setIsLoading(true);
@@ -50,7 +50,7 @@ const useChat = () => {
             content: content,
           },
         ];
-        // ignoreHistoryの場合は一問一答形式とする
+        // ignoreHistory의 경우 질문과 답변의 형식입니다
         if (isEmptyMessages || promptSetting.ignoreHistory) {
           sendingMessage.unshift({
             role: 'system',
@@ -87,20 +87,19 @@ const useChat = () => {
               ]),
         );
 
-        // Assistant の発言を更新
+        // Assistant 답변 업데이트
         let tmpChunk = '';
 
         for await (const chunks of stream) {
-          // チャンクデータは改行コード区切りで送信されてくるので、分割して処理する
+          // 청크 데이터는 줄 바꿈 코드로 구분되어 전송되므로 분할하여 처리합니다.
           for (const chunk_ of chunks.split('\n')) {
             if (chunk_) {
               const chunk: StreamingChunk = JSON.parse(chunk_);
               tmpChunk += chunk.text;
             }
           }
-
-          // chunk は 10 文字以上でまとめて処理する
-          // バッファリングしないと以下のエラーが出る
+          // chunk는 10자 이상으로 함께 처리합니다.
+          // 버퍼를 사용하지 않으면 다음 오류가 발생합니다.
           // Maximum update depth exceeded
           if (tmpChunk.length >= 10) {
             dispatch(overwriteLatestMessage(tabId, tmpChunk + '▍'));
@@ -113,7 +112,7 @@ const useChat = () => {
     },
     clearMessages: () => {
       if (tabId === -1) {
-        throw new Error('Tab IDが取得できませんでした');
+        throw new Error('Tab ID를 얻을 수 없습니다.');
       }
 
       dispatch(clearMessages({ tabId }));

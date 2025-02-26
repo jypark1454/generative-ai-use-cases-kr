@@ -9,7 +9,7 @@ import {
   PiChatsCircle,
   PiPenNib,
   PiTranslate,
-  PiGlobe,
+  //PiGlobe,
   PiImages,
   //PiNotebook,
   //PiPen,
@@ -29,7 +29,7 @@ import {
   RagPageQueryParams,
   SummarizePageQueryParams,
   TranslatePageQueryParams,
-  WebContentPageQueryParams,
+  //WebContentPageQueryParams,
   //VideoAnalyzerPageQueryParams,
 } from '../@types/navigate';
 import queryString from 'query-string';
@@ -122,6 +122,7 @@ const LandingPage: React.FC = () => {
     navigate(`/translate?${queryString.stringify(params)}`);
   };
 
+  {/*
   const demoWebContent = () => {
     const params: WebContentPageQueryParams = {
       url: '',
@@ -129,6 +130,7 @@ const LandingPage: React.FC = () => {
     };
     navigate(`/web-content?${queryString.stringify(params)}`);
   };
+  */}
 
   const demoGenerateImage = () => {
     const params: GenerateImagePageQueryParams = {
@@ -338,13 +340,14 @@ const LandingPage: React.FC = () => {
           icon={<PiPencil />}
           description="문장 생성 모든 컨텍스트에서 문장을 생성하는 것은 LLM이 가장 잘 할 수 있는 작업 중 하나입니다. 기사, 보고서, 이메일 등 모든 컨텍스트에 대응합니다."
         />
-        */}
+        
         <CardDemo
           label="리뷰 추출"
           onClickDemo={demoWebContent}
           icon={<PiGlobe />}
           description="URL을 입력하면 웹 콘텐츠에서 고객 리뷰를 추출하고, LLM을 통해 불필요한 정보를 제거한 후 완성된 문장으로 정형화하여 보여줍니다. 추출된 콘텐츠는 요약, 번역 등 다른 사용 사례에 활용할 수 있습니다."
         />
+        */}
         <CardDemo
           label="리뷰 요약"
           onClickDemo={demoSummarize}

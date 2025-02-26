@@ -47,7 +47,7 @@ const ModalSystemContext: React.FC<Props> = (props) => {
             outlined
             onClick={() => props.setShowSystemContextModal(false)}
             className="p-2">
-            キャンセル
+            취소
           </Button>
           <Button
             onClick={() => {

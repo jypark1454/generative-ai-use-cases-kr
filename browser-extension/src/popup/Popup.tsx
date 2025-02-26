@@ -8,7 +8,7 @@ const Popup = () => {
     <div className="bg-aws-squid-ink w-[25rem] text-white p-3 flex flex-col gap-3 items-center rounded">
       <div className="flex font-bold justify-center text-base items-center gap-2">
         <AwsLogo className="w-6" />
-        generative-ai-use-cases-jp拡張機能
+        generative-ai-use-cases-kr 확장기능
       </div>
       <div className="">
         <Button
@@ -20,7 +20,7 @@ const Popup = () => {
             });
           }}
         >
-          Bedrock連携を開く
+          Bedrock 팝업창 열기
         </Button>
       </div>
     </div>

@@ -8,7 +8,7 @@ import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-id
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 import { OptimizePromptRequest } from 'generative-ai-use-cases-jp';
 
-// サポート状況は以下のページから
+// 지원여부는 다음 웹페이지에서 확인할 수 있습니다.
 // https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-optimize.html
 export const SUPPORTED_REGIONS = [
   'us-east-1',
@@ -48,7 +48,7 @@ const useOptimizePrompt = () => {
     optimizePrompt: async function* (req: OptimizePromptRequest) {
       const token = (await fetchAuthSession()).tokens?.idToken?.toString();
       if (!token) {
-        throw new Error('認証されていません。');
+        throw new Error('인증이 필요합니다.');
       }
 
       const region = import.meta.env.VITE_APP_REGION;

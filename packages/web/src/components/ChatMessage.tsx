@@ -283,7 +283,7 @@ const ChatMessage: React.FC<Props> = (props) => {
           )}
           {showThankYouMessage && (
             <div className="mt-2 rounded-md bg-green-100 p-2 text-center text-green-700">
-              フィードバックを受け付けました。ありがとうございます。
+              피드백이 전달되었습니다. 감사합니다.
             </div>
           )}
         </div>

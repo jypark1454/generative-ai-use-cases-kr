@@ -36,7 +36,7 @@ const ModalDialogDeleteUseCase: React.FC<Props> = (props) => {
             onClick={() => {
               props.onClose();
             }}>
-            キャンセル
+            취소
           </Button>
           <Button
             className="bg-red-600"

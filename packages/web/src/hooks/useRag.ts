@@ -157,7 +157,7 @@ const useRag = (id: string) => {
               return message.includes(`[^${idx}]`)
                 ? `[^${idx}]: [${item.DocumentTitle}${
                     _excerpt_page_number
-                      ? `(${_excerpt_page_number} ページ)`
+                      ? `(${_excerpt_page_number} Page)`
                       : ''
                   }](
                   ${item.DocumentURI ? cleanEncode(item.DocumentURI) : ''}${
