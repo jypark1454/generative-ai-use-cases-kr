@@ -142,15 +142,13 @@ const items: ItemProps[] = [
   },
   /*
   visionEnabled
-    ? {
+  ? {
         label: '영상 분석',
         to: '/video',
         icon: <PiVideoCamera />,
         display: 'usecase' as const,
       }
     : null,
-  */
-  /*
   {
     label: '음성인식',
     to: '/transcribe',

@@ -9,15 +9,15 @@ export type AmazonAdvancedImageGenerationMode =
   | 'IMAGE_CONDITIONING'
   | 'COLOR_GUIDED_GENERATION'
   | 'BACKGROUND_REMOVAL';
-// UI 表示用
+// UI 용
 export type AmazonUIImageGenerationMode =
   | AmazonBaseImageGenerationMode
   | AmazonAdvancedImageGenerationMode;
-// API通信用
+// API 용
 export type AmazonAPIImageGenerationMode =
   | AmazonBaseImageGenerationMode
   | Exclude<AmazonAdvancedImageGenerationMode, 'IMAGE_CONDITIONING'>;
-// 標準化したパラメータ
+// 표준화된 파라미터
 export type GenerateImageParams = {
   taskType?: AmazonAPIImageGenerationMode;
   textPrompt: {

@@ -138,7 +138,7 @@ export class RagKnowledgeBaseStack extends Stack {
 
     if (typeof embeddingModelId !== 'string') {
       throw new Error(
-        'Knowledge Base RAG が有効になっていますが、embeddingModelId が指定されていません'
+        'Knowledge Base RAG가 활성화되어 있지만 embeddingModelId가 지정되지 않았습니다.'
       );
     }
 
@@ -369,7 +369,7 @@ export class RagKnowledgeBaseStack extends Stack {
       vectorIngestionConfiguration: {
         ...(ragKnowledgeBaseAdvancedParsing
           ? {
-              // Advanced Parsing を有効化する場合のみ、parsingConfiguration を構成する
+              // Advanced Parsing을 활성화한 경우에만 parsingConfiguration을 구성합니다.
               parsingConfiguration: {
                 parsingStrategy: 'BEDROCK_FOUNDATION_MODEL',
                 bedrockFoundationModelConfiguration: {

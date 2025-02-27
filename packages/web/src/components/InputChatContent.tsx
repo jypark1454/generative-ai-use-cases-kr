@@ -178,7 +178,7 @@ const InputChatContent: React.FC<Props> = (props) => {
           )}
           <Textarea
             className={`scrollbar-thumb-gray-200 scrollbar-thin m-2 -mr-14 bg-transparent ${props.fileUpload ? 'pr-24' : 'pr-14'}`}
-            placeholder={props.placeholder ?? '입력해주세요'}
+            placeholder={props.placeholder ?? '서울에 있는 애니뷰티 매장 위치와 전화번호를 알려줘'}
             noBorder
             notItem
             value={props.content}

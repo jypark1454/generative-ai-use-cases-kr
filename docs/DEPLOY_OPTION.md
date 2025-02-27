@@ -88,7 +88,7 @@ context の `ragKnowledgeBaseEnabled` に `true` を指定します。(デフォ
 }
 ```
 
-`ragKnowledgeBaseStandbyReplicas` は自動作成される OpenSearch Serverless の冗長化に関する値です。
+`ragKnowledgeBaseStandbyReplicas` 는 자동으로 생성되는 OpenSearch Serverless 이중화에 대한 값입니다.
 - `false` : 開発およびテスト目的に適した指定。シングル AZ で稼働し、OCU のコストを半分にできる。
 - `true` : 本番環境に適した設定。複数の AZ で稼働し、高可用性な構成が実現できる。
 

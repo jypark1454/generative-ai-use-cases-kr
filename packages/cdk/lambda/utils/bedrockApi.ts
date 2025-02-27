@@ -21,7 +21,7 @@ import { BEDROCK_TEXT_GEN_MODELS, BEDROCK_IMAGE_GEN_MODELS } from './models';
 import { STSClient, AssumeRoleCommand } from '@aws-sdk/client-sts';
 import { streamingChunk } from './streamingChunk';
 
-// STSから一時的な認証情報を取得する関数
+// STS에서 임시 자격 증명을 얻는 함수
 const assumeRole = async (crossAccountBedrockRoleArn: string) => {
   const stsClient = new STSClient({ region: process.env.MODEL_REGION });
   const command = new AssumeRoleCommand({
@@ -38,7 +38,7 @@ const assumeRole = async (crossAccountBedrockRoleArn: string) => {
         sessionToken: response.Credentials?.SessionToken,
       };
     } else {
-      throw new Error('認証情報を取得できませんでした。');
+      throw new Error('자격 증명을 가져올 수 없습니다.');
     }
   } catch (error) {
     console.error('Error assuming role: ', error);
@@ -46,15 +46,15 @@ const assumeRole = async (crossAccountBedrockRoleArn: string) => {
   }
 };
 
-// BedrockRuntimeClient を初期化するこの関数は、通常では単純に BedrockRuntimeClient を環境変数で指定されたリージョンで初期化します。
-// 特別なケースとして、異なる AWS アカウントに存在する Bedrock リソースを利用したい場合があります。
-// そのような場合、CROSS_ACCOUNT_BEDROCK_ROLE_ARN 環境変数が設定されているかをチェックします。(cdk.json で crossAccountBedrockRoleArn が設定されている場合に環境変数として設定される)
-// 設定されている場合、指定されたロールを AssumeRole 操作によって引き受け、取得した一時的な認証情報を用いて BedrockRuntimeClient を初期化します。
-// これにより、別の AWS アカウントの Bedrock リソースへのアクセスが可能になります。
+// BedrockRuntimeClient 를 초기화하는 이 함수는 일반적으로 환경 변수로 지정된 리전으로 BedrockRuntimeClient 를 초기화합니다.
+// 특별한 경우로 다른 AWS 계정에 있는 Bedrock 리소스를 사용하고 싶을 수 있습니다.
+// 이 경우 CROSS_ACCOUNT_BEDROCK_ROLE_ARN 환경 변수가 설정되어 있는지 확인합니다 (cdk.json에서 crossAccountBedrockRoleArn이 설정된 경우 환경 변수로 설정됨).
+// 설정되어 있는 경우, 지정된 롤을 AssumeRole 조작에 의해 맡아 취득한 일시적인 자격 증명을 이용해 BedrockRuntimeClient 를 초기화합니다.
+// 이렇게 하면 다른 AWS 계정의 Bedrock 리소스에 액세스할 수 있습니다.
 const initBedrockClient = async () => {
-  // CROSS_ACCOUNT_BEDROCK_ROLE_ARN が設定されているかチェック
+  // CROSS_ACCOUNT_BEDROCK_ROLE_ARN이 설정되어 있는지 확인
   if (process.env.CROSS_ACCOUNT_BEDROCK_ROLE_ARN) {
-    // STS から一時的な認証情報を取得してクライアントを初期化
+    // STS에서 임시 자격 증명을 가져와 클라이언트 초기화
     const tempCredentials = await assumeRole(
       process.env.CROSS_ACCOUNT_BEDROCK_ROLE_ARN
     );
@@ -76,7 +76,7 @@ const initBedrockClient = async () => {
       },
     });
   } else {
-    // STSを使用しない場合のクライアント初期化
+    // STS를 사용하지 않을 경우 클라이언트 초기화
     return new BedrockRuntimeClient({
       region: process.env.MODEL_REGION,
     });
@@ -223,7 +223,7 @@ const bedrockApi: Omit<ApiInterface, 'invokeFlow'> = {
   generateImage: async (model, params) => {
     const client = await initBedrockClient();
 
-    // Stable Diffusion や Titan Image Generator を利用した画像生成は Converse API に対応していないため、InvokeModelCommand を利用する
+    // Stable Diffusion 및 Titan Image Generator를 사용한 이미지 생성은 Converse API를 지원하지 않으므로 InvokeModelCommand를 사용합니다.
     const command = new InvokeModelCommand({
       modelId: model.modelId,
       body: createBodyImage(model.modelId, params),

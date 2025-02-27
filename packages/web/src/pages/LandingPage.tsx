@@ -56,8 +56,7 @@ const LandingPage: React.FC = () => {
 
   const demoChat = () => {
     const params: ChatPageQueryParams = {
-      content: `피보나치 수를 반환하는 파이썬 함수를 작성해 주세요. 또한, 구현을 설명해 주세요.
-인수는 항으로, 처리는 재귀로 작성해 주세요. 출력은 마크다운으로 작성합니다.`,
+      content: `서울에 있는 매장 위치랑 전화번호를 알려주세요.`,
       systemContext: '',
     };
     navigate(`/chat?${queryString.stringify(params)}`);
@@ -65,14 +64,14 @@ const LandingPage: React.FC = () => {
 
   const demoRag = () => {
     const params: RagPageQueryParams = {
-      content: `Claude 의 매개변수를 설명하고 설정하는 방법도 알려주세요.`,
+      content: `서울에 있는 매장 위치랑 전화번호를 알려주세요.`,
     };
     navigate(`/rag?${queryString.stringify(params)}`);
   };
 
   const demoRagKnowledgeBase = () => {
     const params: RagPageQueryParams = {
-      content: `Claude 의 매개변수를 설명하고 설정하는 방법도 알려주세요.`,
+      content: `서울에 있는 매장 위치랑 전화번호를 알려주세요.`,
     };
     navigate(`/rag-knowledge-base?${queryString.stringify(params)}`);
   };
@@ -98,7 +97,7 @@ const LandingPage: React.FC = () => {
   const demoSummarize = () => {
     const params: SummarizePageQueryParams = {
       sentence:
-        'Amazon Bedrock은 아마존과 주요 AI 스타트업이 제공하는 기반 모델(FM)을 API를 통해 이용할 수 있는 완전 관리형 서비스다. 아마존 베드락의 서버리스 경험을 통해 사용자는 다양한 FM 중에서 자신의 사용 사례에 가장 적합한 모델을 선택할 수 있으며, 즉시 FM을 시작하고, FM을 쉽게 시험해보고, 자신의 데이터로 FM을 프라이빗하게 커스터마이징하고, AWS의 도구와 기능을 사용하여 FM을 애플리케이션에 적용하는 등 다양한 작업을 수행할 수 있다. Amazon Bedrock의 에이전트는 개발자가 다양한 사용 사례에 대한 작업을 완료할 수 있도록 다양한 지식 소스를 기반으로 최신의 답변을 제공하는 생성형 AI 애플리케이션을 쉽게 개발할 수 있도록 돕는다. Bedrock의 서버리스 경험을 통해 개발자는 인프라를 관리할 필요 없이 즉시 사용을 시작하고, 자신의 데이터로 FM을 프라이빗하게 커스터마이징하고, 익숙한 AWS 툴과 기능을 사용해 애플리케이션에 적용시킬 수 있다. AWS 도구 및 기능을 사용하여 애플리케이션에 쉽게 통합하고 배포할 수 있습니다(다양한 모델을 테스트하기 위한 실험 및 FM을 대규모로 관리하기 위한 파이프라인과 같은 Amazon SageMaker의 ML 기능과의 통합을 포함)',
+        '안녕하세요, 저는 요약을 도와주는 AI 어시스턴트입니다. 리뷰를 입력하세요.',
       additionalContext: '',
     };
     navigate(`/summarize?${queryString.stringify(params)}`);
@@ -107,7 +106,7 @@ const LandingPage: React.FC = () => {
   const demoEditorial = () => {
     const params: EditorialPageQueryParams = {
       sentence:
-        '안녕하세요. 저는 교정을 도와주는 완벽한 AI 어시스턴트입니다. 원하는 문장을 입력하세요.',
+        '안녕하세요, 저는 교정을 도와주는 완벽한 AI 어시스턴트입니다. 원하는 문장을 입력하세요.',
     };
     navigate(`/editorial?${queryString.stringify(params)}`);
   };
@@ -115,7 +114,7 @@ const LandingPage: React.FC = () => {
   const demoTranslate = () => {
     const params: TranslatePageQueryParams = {
       sentence:
-        '안녕하세요. 저는 번역을 도와주는 AI 어시스턴트입니다. 원하는 문장을 입력하세요.',
+        '안녕하세요, 저는 번역을 도와주는 AI 어시스턴트입니다. 원하는 문장을 입력하세요.',
       additionalContext: '',
       language: 'English',
     };
@@ -134,8 +133,7 @@ const LandingPage: React.FC = () => {
 
   const demoGenerateImage = () => {
     const params: GenerateImagePageQueryParams = {
-      content: `스마트폰 광고 디자인 시안을 출력해 주세요.
-귀여운, 세련된, 사용하기 쉬운, POP 문화, 친근한, 젊은층, 음악, 사진, 유행하는 스마트폰, 배경이 도시인`,
+      content: `한국인 남녀가 화장품 매장 안에 서 있다. 매장안은 발렌타인데이 컨셉으로 인테리어 되어있다. 두 사람은 남성용 화장품 매대를 손가락으로 가리키며 무엇인가를 논의하고 있다. 이미지는 남녀의 뒷모습을 보여주고 있으며 남녀의 앞에는 남성용 화장품이 진열되어 있다.`,
     };
     navigate(`/image?${queryString.stringify(params)}`);
   };
