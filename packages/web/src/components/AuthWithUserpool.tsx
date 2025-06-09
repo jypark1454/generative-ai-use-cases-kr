@@ -21,7 +21,7 @@ const AuthWithUserpool: React.FC<Props> = (props) => {
   });
 
   I18n.putVocabularies(translations);
-  I18n.setLanguage('ja');
+  I18n.setLanguage('ko');
 
   return (
     <Authenticator

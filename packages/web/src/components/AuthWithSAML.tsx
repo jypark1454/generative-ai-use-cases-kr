@@ -20,7 +20,7 @@ const AuthWithSAML: React.FC<Props> = (props) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 認証状態の検証
+    // 인증 상태 검증
     if (authStatus === 'configuring') {
       setLoading(true);
       setAuthenticated(false);
@@ -65,7 +65,7 @@ const AuthWithSAML: React.FC<Props> = (props) => {
     <>
       {loading ? (
         <div className="grid grid-cols-1 justify-items-center gap-4">
-          <Text className="mt-12 text-center">Loading...</Text>
+          <Text className="mt-12 text-center">로딩 중...</Text>
           <Loader width="5rem" height="5rem" />
         </div>
       ) : !authenticated ? (
